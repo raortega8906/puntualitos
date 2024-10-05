@@ -172,7 +172,7 @@
                     </main>
 
                     <footer class="py-16 text-center text-sm text-black dark:text-white/70">
-                        <p>&copy; {{ date('Y') }} Todos los derechos reservados. Desarrollado por <a href="https://rafaelortegaweb.wpcache.es">Rafael A. Ortega</a>.</p>
+                        <p>&copy; {{ date('Y') }} Desarrollado por <a href="https://rafaelortegaweb.wpcache.es">Rafael A. Ortega</a>.</p>
                     </footer>
                 </div>
             </div>
