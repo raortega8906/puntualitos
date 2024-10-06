@@ -92,7 +92,7 @@
             <nav class="mt-2"> <!--begin::Sidebar Menu-->
                 <ul class="nav sidebar-menu flex-column" data-lte-toggle="treeview" role="menu" data-accordion="false">
 
-                    <li class="nav-item"><a href="#" class="nav-link"> <i class="nav-icon bi bi-table"></i>
+                    <li class="nav-item"><a href="#" class="nav-link"> <i class="nav-icon bi bi-house"></i>
                             <p>
                                 {{ __('Inicio') }}
                                 <i class="nav-arrow bi bi-chevron-right"></i>
@@ -100,12 +100,12 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('dashboard') }}" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <a href="{{ route('dashboard') }}" class="nav-link"> <i class="nav-icon bi bi-speedometer2"></i>
                                     <p>{{ __('Dashboard') }}</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('profile.edit') }}" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                <a href="{{ route('profile.edit') }}" class="nav-link"> <i class="nav-icon bi bi-person-check"></i>
                                     <p>{{ __('Perfil') }}</p>
                                 </a>
                             </li>
@@ -113,7 +113,7 @@
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        this.closest('form').submit();" class="nav-link"> <i class="nav-icon bi bi-circle"></i>
+                                        this.closest('form').submit();" class="nav-link"> <i class="nav-icon bi bi-box-arrow-right"></i>
                                         <p>{{ __('Salir del sistema') }}</p>
                                     </a>
                                 </form>
@@ -122,19 +122,23 @@
                     </li>
                     <li class="nav-header mt-3">{{ __('MI EMPRESA') }}</li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-box-arrow-in-right"></i>
+                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-clock-history"></i>
                             <p>{{ __('Históricos') }}</p>
                         </a>
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-box-arrow-in-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-calendar2-x"></i>
                             <p>{{ __('Ausencias') }}</p>
                         </a>
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-box-arrow-in-right"></i>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
                             <p>{{ __('Calendario laboral') }}</p>
                         </a>
                     </li>
                     <li class="nav-header mt-3">{{ __('PUNTUALITOS') }}</li>
                     <li class="nav-item">
-                        <a href="./docs/faq.html" class="nav-link"> <i class="nav-icon bi bi-question-circle-fill"></i>
+                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-question-circle-fill"></i>
                             <p>{{ __('Soporte') }}</p>
                         </a>
                     </li>
@@ -142,7 +146,7 @@
                     @if( Auth::user()->email == 'raortega8906@gmail.com')
                         <li class="nav-header mt-5">{{ __('ADMINISTRACION') }}</li>
                         <li class="nav-item">
-                            <a href="{{ route('users.index') }}" class="nav-link"> <i class="nav-icon bi bi-question-circle-fill"></i>
+                            <a href="{{ route('users.index') }}" class="nav-link"> <i class="nav-icon bi bi-person"></i>
                                 <p>{{ __('Usuarios') }}</p>
                             </a>
                         </li>
