@@ -199,7 +199,7 @@
                                 <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary position-relative">
                                     {{ __('Editar') }}
                                 </a>
-                                <form method="POST" action="{{ route('users.destroy', $user) }}" onsubmit="return confirm('Estás seguro que quieres eliminar el usuario?')">
+                                <form method="POST" action="{{ route('users.destroy', $user) }}" onsubmit="return confirm('¿Estás seguro que quieres eliminar el usuario?')">
                                     @method('DELETE')
                                     @csrf
                                     <button type="submit" class="btn btn-danger">

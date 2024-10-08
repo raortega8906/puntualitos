@@ -32,11 +32,9 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        dd($request->all()); die();
+        User::create($request->validated());
 
-//        User::create($request->validated());
-//
-//        return redirect()->route('users.index');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -52,11 +50,9 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user)
     {
-        dd($request->all());
+        $user->update($request->validated());
 
-//        $user->update($request->validated());
-//
-//        return redirect()->route('users.index', compact('user'));
+        return redirect()->route('users.index', compact('user'));
     }
 
     /**
@@ -64,8 +60,8 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        dd($user); die();
+        $user->delete();
 
-//        $user->delete();
+        return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente.');
     }
 }
