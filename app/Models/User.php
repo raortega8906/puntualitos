@@ -22,6 +22,7 @@ class User extends Authenticatable
         "departments",
         "email",
         "password",
+        "is_admin"
     ];
 
     /**
