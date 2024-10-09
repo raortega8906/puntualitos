@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
         User::create([
             'first_name' => 'Rafael A.',
             'last_name' => 'Ortega Valderrama',
-            'departments' => 'Rafael A.',
+            'departments' => 'Desarrollo',
             'email' => 'raortega8906@gmail.com',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('laravel2024.'),
             'is_admin' => 1,
         ]);
     }

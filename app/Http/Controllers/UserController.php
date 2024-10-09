@@ -34,7 +34,7 @@ class UserController extends Controller
     {
         User::create($request->validated());
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('status', 'Usuario registrado exitosamente.');;
     }
 
     /**
@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
-        return redirect()->route('users.index', compact('user'));
+        return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');;
     }
 
     /**
@@ -66,6 +66,6 @@ class UserController extends Controller
     {
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente.');
+        return redirect()->route('users.index')->with('delete', 'Usuario eliminado correctamente.');
     }
 }

@@ -159,89 +159,51 @@
             <div class="container-fluid"> <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">{{ __('Usuarios') }}</h3>
+                        <h3 class="mb-0">{{ __('Crear Incidencia') }}</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
                             <li class="breadcrumb-item"><a href="#">{{ __('Home') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('Usuarios') }}
+                                {{ __('Crear Incidencia') }}
                             </li>
                         </ol>
                     </div>
-                    <div class="col-sm-6">
-                        <a href="{{ route('users.create') }}" class="btn btn-primary mt-2">
-                            {{ __('Crear nuevo usuario') }}
-                        </a>
-                    </div>
                 </div> <!--end::Row-->
-                @if(session('status'))
-                    <div class="alert alert-success alert-dismissible mt-2" id="message">
-                        <button type="button" class="close" id="close-btn" data-dismiss="alert" aria-hidden="true" style="position: absolute;
-                            top: 0;
-                            right: 0;
-                            z-index: 2;
-                            padding: .75rem 1.25rem;
-                            background-color: transparent;
-                            border: 0;
-                            color: inherit;">×</button>
-                        <div>{{ session('status') }}</div>
-                    </div>
-                @endif
-                @if(session('delete'))
-                    <div class="alert alert-dannger alert-dismissible mt-2" id="message" style="color: #fff;
-                        background-color: #dc3545;
-                        border-color: #d32535;">
-                        <button type="button" class="close" id="close-btn" data-dismiss="alert" aria-hidden="true" style="position: absolute;
-                            top: 0;
-                            right: 0;
-                            z-index: 2;
-                            padding: .75rem 1.25rem;
-                            background-color: transparent;
-                            border: 0;
-                            color: inherit;">×</button>
-                        <div>{{ session('delete') }}</div>
-                    </div>
-                @endif
             </div> <!--end::Container-->
         </div> <!--end::App Content Header--> <!--begin::App Content-->
         <div class="app-content"> <!--begin::Container-->
             <div class="container-fluid"> <!--begin::Row-->
+                <div class="card card-primary mb-4">
+                    <form method="POST" action="{{ route('incidents.issueStore') }}">
+                        @csrf
+{{--                        <div class="card-body">--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="first_name" class="form-label">{{ __('Nombre') }}</label>--}}
+{{--                                <input type="text" name="first_name" class="form-control" id="first_name" required>--}}
+{{--                            </div>--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="last_name" class="form-label">{{ __('Apellidos') }}</label>--}}
+{{--                                <input type="text" name="last_name" class="form-control" id="last_name" required>--}}
+{{--                            </div>--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="departments" class="form-label">{{ __('Departamento') }}</label>--}}
+{{--                                <input type="text" name="departments" class="form-control" id="departments" required>--}}
+{{--                            </div>--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="email" class="form-label">{{ __('Email') }}</label>--}}
+{{--                                <input type="email" name="email" class="form-control" id="email" required>--}}
+{{--                            </div>--}}
+{{--                            <div class="mb-3">--}}
+{{--                                <label for="password" class="form-label">{{ __('Contraseña') }}</label>--}}
+{{--                                <input type="password" name="password" class="form-control" id="password" required>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                <table class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>{{ __('Nombre y Apellidos') }}</th>
-                            <th>{{ __('Email') }}</th>
-                            <th>{{ __('Departamento') }}</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($users as $user)
-                        <tr class="align-middle">
-                            <td>{{ $user->first_name }} {{ $user->last_name }}</td>
-                            <td>{{ $user->email }}</td>
-                            <td>{{ $user->departments }}</td>
-                            <td style="display: grid; justify-content: space-evenly;">
-                                <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary position-relative mb-2">
-                                    {{ __('Editar') }}
-                                </a>
-                                <form method="POST" action="{{ route('users.destroy', $user) }}" onsubmit="return confirm('¿Estás seguro que quieres eliminar el usuario?')">
-                                    @method('DELETE')
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger">
-                                        {{ __('Eliminar') }}
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-
-                <div class="mt-4">
-                    {{ $users->links() }}
+                        <div class="card-footer">
+                            <button type="submit" class="btn btn-success">{{ __('Crear') }}</button>
+                        </div>
+                    </form>
                 </div>
 
             </div> <!--end::Container-->
@@ -286,24 +248,6 @@
         }
     });
 </script> <!--end::OverlayScrollbars Configure-->
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const message = document.getElementById('message');
-        const closeBtn = document.getElementById('close-btn');
-
-        // Cerrar el mensaje al hacer clic en la "X"
-        closeBtn.addEventListener('click', function() {
-            message.style.display = 'none';
-        });
-
-        // Cerrar automáticamente después de 5 segundos
-        setTimeout(function() {
-            message.style.display = 'none';
-        }, 5000); // 5000 milisegundos = 5 segundos
-    });
-</script>
-
 </body><!--end::Body-->
 
 </html>

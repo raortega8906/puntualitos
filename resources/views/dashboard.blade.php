@@ -171,6 +171,34 @@
                         </ol>
                     </div>
                 </div> <!--end::Row-->
+                @if(session('status'))
+                    <div class="alert alert-success alert-dismissible" id="message">
+                        <button type="button" class="close" id="close-btn" data-dismiss="alert" aria-hidden="true" style="position: absolute;
+                            top: 0;
+                            right: 0;
+                            z-index: 2;
+                            padding: .75rem 1.25rem;
+                            background-color: transparent;
+                            border: 0;
+                            color: inherit;">×</button>
+                        <div>{{ session('status') }}</div>
+                    </div>
+                @endif
+                @if(session('warning'))
+                    <div class="alert alert-warning alert-dismissible" id="message" style="color: #1f2d3d;
+                        background-color: #ffc107;
+                        border-color: #edb100;">
+                        <button type="button" class="close" id="close-btn" data-dismiss="alert" aria-hidden="true" style="position: absolute;
+                            top: 0;
+                            right: 0;
+                            z-index: 2;
+                            padding: .75rem 1.25rem;
+                            background-color: transparent;
+                            border: 0;
+                            color: inherit;">×</button>
+                        <div>{{ session('status') }}</div>
+                    </div>
+                @endif
             </div> <!--end::Container-->
         </div> <!--end::App Content Header--> <!--begin::App Content-->
         <div class="app-content"> <!--begin::Container-->
@@ -180,15 +208,21 @@
                         <div class="small-box text-bg-primary">
                             <div class="inner" style="display: grid;">
                                 <h3>{{ __('Registros') }}</h3>
-                                <button type="submit" class="btn btn btn-block btn-success btn-lg mb-2">
-                                    {{ __('Registrar entrada') }}
-                                </button>
-                                <button type="submit" class="btn btn-danger btn-lg mb-2">
-                                    {{ __('Registrar salida') }}
-                                </button>
-                                <button type="submit" class="btn btn-warning btn-lg mb-2">
+                                <form method="POST" action="{{ route('check-in') }}" style="display: contents;">
+                                    @csrf
+                                    <button type="submit" class="btn btn btn-block btn-success btn-lg mb-2">
+                                        {{ __('Registrar entrada') }}
+                                    </button>
+                                </form>
+                                <form method="POST" action="{{ route('check-out') }}" style="display: contents;">
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger btn-lg mb-2">
+                                        {{ __('Registrar salida') }}
+                                    </button>
+                                </form>
+                                <a href="{{ route('incidents.issueCreate') }}" class="btn btn-warning btn-lg mb-2">
                                     {{ __('Registrar incidencia') }}
-                                </button>
+                                </a>
                             </div>
                             <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                                  xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -281,6 +315,56 @@
         }
     });
 </script> <!--end::OverlayScrollbars Configure-->
+
+<script src="https://api.ipify.org?format=jsonp&callback=getIp"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let userIp = '';
+        console.log('api')
+
+        // Obtener la IP pública del usuario usando la API de ipify
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                userIp = data.ip;
+                console.log(userIp)
+            })
+            .catch(error => {
+                console.error('Error fetching IP:', error);
+            });
+
+        // Añadir la IP pública al formulario cuando se envía
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                if(userIp) {
+                    let ipInput = document.createElement('input');
+                    ipInput.setAttribute('type', 'hidden');
+                    ipInput.setAttribute('name', 'public_ip');
+                    ipInput.setAttribute('value', userIp);
+                    this.appendChild(ipInput);
+                }
+            });
+        });
+    });
+
+    // Esperar a que se cargue el DOM
+    document.addEventListener('DOMContentLoaded', function() {
+        const message = document.getElementById('message');
+        const closeBtn = document.getElementById('close-btn');
+
+        // Cerrar el mensaje al hacer clic en la "X"
+        closeBtn.addEventListener('click', function() {
+            message.style.display = 'none';
+        });
+
+        // Cerrar automáticamente después de 5 segundos
+        setTimeout(function() {
+            message.style.display = 'none';
+        }, 5000); // 5000 milisegundos = 5 segundos
+    });
+</script>
+
 </body><!--end::Body-->
 
 </html>
