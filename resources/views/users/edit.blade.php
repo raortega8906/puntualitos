@@ -62,17 +62,17 @@
                                                                      class="rounded-circle shadow" alt="Avatar Image">
                             <p>
                                 {{ Auth::user()->first_name }}
-                                {{--                                <small>{{ __('Desde el 2024') }}</small>--}}
+                                <small>{{ __('Desde ' . Auth::user()->created_at) }}</small>
                             </p>
                         </li> <!--end::User Image--> <!--begin::Menu Body-->
 
-                        <li class="user-footer">
-                            <a href="{{ route('profile.edit') }}" class="btn btn-default btn-flat">{{ __('Perfil') }}</a>
+                        <li class="user-footer" style="display: grid; justify-content: space-around;">
+                            <a href="{{ route('users.edit', Auth::user()) }}" class="btn btn-default btn-flat">{{ __('Perfil') }}</a>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         this.closest('form').submit();" class="btn btn-default btn-flat float-end">
-                                    {{ __('Sign out') }}
+                                    {{ __('Salir') }}
                                 </a>
                             </form>
                         </li> <!--end::Menu Footer-->
@@ -104,7 +104,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('profile.edit') }}" class="nav-link"> <i class="nav-icon bi bi-person-check"></i>
+                                <a href="{{ route('users.edit', Auth::user()) }}" class="nav-link"> <i class="nav-icon bi bi-person-check"></i>
                                     <p>{{ __('Perfil') }}</p>
                                 </a>
                             </li>
@@ -126,13 +126,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-calendar2-x"></i>
-                            <p>{{ __('Ausencias') }}</p>
+                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
+                            <p>{{ __('Calendario laboral') }}</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
-                            <p>{{ __('Calendario laboral') }}</p>
+                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-airplane"></i>
+                            <p>{{ __('Vacaciones') }}</p>
                         </a>
                     </li>
                     <li class="nav-header mt-3">{{ __('PUNTUALITOS') }}</li>
@@ -159,13 +159,13 @@
             <div class="container-fluid"> <!--begin::Row-->
                 <div class="row">
                     <div class="col-sm-6">
-                        <h3 class="mb-0">{{ __('Crear Usuario') }}</h3>
+                        <h3 class="mb-0">{{ __('Perfil') }}</h3>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-end">
                             <li class="breadcrumb-item"><a href="#">{{ __('Home') }}</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
-                                {{ __('Crear Usuario') }}
+                                {{ __('Perfil') }}
                             </li>
                         </ol>
                     </div>

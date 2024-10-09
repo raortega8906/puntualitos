@@ -42,6 +42,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        if (auth()->user()->id !== $user->id && !auth()->user()->is_admin) {
+            abort(403, 'No autorizado.');
+        }
+
         return view('users.edit', compact('user'));
     }
 

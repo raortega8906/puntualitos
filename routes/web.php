@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware([\App\Http\Middleware\IsAdminMiddleware::class])->group(function () {
          // Rutas protegidas para admin
-         Route::resource('users', UserController::class)->except(['edit', 'update', 'show']);
+         Route::resource('users', UserController::class)->except(['edit', 'update']);
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
