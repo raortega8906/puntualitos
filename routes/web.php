@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\IsAdminMiddleware;
 use Illuminate\Support\Facades\Route;
 
 
@@ -17,7 +18,7 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('users', UserController::class)->only(['edit', 'update']);
 
-    Route::middleware([\App\Http\Middleware\IsAdminMiddleware::class])->group(function () {
+    Route::middleware([IsAdminMiddleware::class])->group(function () {
          // Rutas protegidas para admin
          Route::resource('users', UserController::class)->except(['edit', 'update']);
     });
