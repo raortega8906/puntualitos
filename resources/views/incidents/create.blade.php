@@ -149,6 +149,11 @@
                                 <p>{{ __('Usuarios') }}</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('incidents.issueIndex') }}" class="nav-link"> <i class="nav-icon bi bi-clipboard-check"></i>
+                                <p>{{ __('Incidencias') }}</p>
+                            </a>
+                        </li>
                     @endif
                 </ul> <!--end::Sidebar Menu-->
             </nav>
@@ -179,24 +184,16 @@
                         @csrf
                         <div class="card-body">
                             <div class="mb-3">
-                                <label for="first_name" class="form-label">{{ __('') }}</label>
-                                <input type="text" name="first_name" class="form-control" id="first_name" required>
+                                <label for="check_in_check_out_issue" class="form-label">{{ __('Tipo de incidencia') }}</label>
+                                <select name="check_in_check_out_issue" class="form-control" id="check_in_check_out_issue" required>
+                                    <option value="Personalizada">{{ __('Personalizada') }}</option>
+                                    <option value="checkin">{{ __('Check in') }}</option>
+                                    <option value="checkout">{{ __('Check out') }}</option>
+                                </select>
                             </div>
                             <div class="mb-3">
-                                <label for="last_name" class="form-label">{{ __('Apellidos') }}</label>
-                                <input type="text" name="last_name" class="form-control" id="last_name" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="departments" class="form-label">{{ __('Departamento') }}</label>
-                                <input type="text" name="departments" class="form-control" id="departments" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">{{ __('Email') }}</label>
-                                <input type="email" name="email" class="form-control" id="email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label for="password" class="form-label">{{ __('Contraseña') }}</label>
-                                <input type="password" name="password" class="form-control" id="password" required>
+                                <label for="description" class="form-label">{{ __('Description') }}</label>
+                                <textarea name="description" class="form-control" id="description"></textarea>
                             </div>
                         </div>
 

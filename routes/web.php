@@ -36,6 +36,7 @@ Route::middleware('auth')->group(function () {
 
     // Rutas registro de incidencias
     Route::get('/incident', [IncidentController::class, 'issueCreate'])->name('incidents.issueCreate');
+    Route::get('/incident', [IncidentController::class, 'issueIndex'])->name('incidents.issueIndex');
     Route::post('/incident', [IncidentController::class, 'issueStore'])->name('incidents.issueStore');
 
     // Rutas profile

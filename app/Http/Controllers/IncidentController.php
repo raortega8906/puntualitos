@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class IncidentController extends Controller
 {
+    public function issueIndex()
+    {
+        $issues = Incident::paginate(10);
+
+        return view('incidents.index', compact('issues'));
+    }
 
     public function issueCreate()
     {
@@ -17,8 +23,8 @@ class IncidentController extends Controller
     {
         Incident::create([
             'user_id' => auth()->id(),
-            'check_in_check_out_issue' => 'Entrada',
-            'description' => null,
+            'check_in_check_out_issue' => $request->input('check_in_check_out_issue'),
+            'description' => $request->input('description'),
             'time' => now()
         ]);
 

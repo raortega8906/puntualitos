@@ -149,6 +149,11 @@
                                 <p>{{ __('Usuarios') }}</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('incidents.issueIndex') }}" class="nav-link"> <i class="nav-icon bi bi-clipboard-check"></i>
+                                <p>{{ __('Incidencias') }}</p>
+                            </a>
+                        </li>
                     @endif
                 </ul> <!--end::Sidebar Menu-->
             </nav>
