@@ -12,7 +12,7 @@ class Incident extends Model
     protected $fillable = [
         'user_id',
         'check_in_issue',
-        'check_ot_issue',
+        'check_out_issue',
         'description',
         'time',
     ];

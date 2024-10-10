@@ -195,7 +195,7 @@
                             padding: .75rem 1.25rem;
                             background-color: transparent;
                             border: 0;
-                            color: inherit;">×</button>
+                            color: #1f2d3d;">×</button>
                         <div>{{ session('status') }}</div>
                     </div>
                 @endif

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('incidents', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('check_in_issue');
-            $table->string('check_out_issue');
+            $table->string('check_in_issue')->nullable();
+            $table->string('check_out_issue')->nullable();
             $table->string('description')->nullable();
             $table->timestamp('time');
             $table->timestamps();

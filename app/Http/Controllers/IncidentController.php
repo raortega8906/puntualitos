@@ -16,7 +16,11 @@ class IncidentController extends Controller
     public function issueStore(Request $request)
     {
         Incident::create([
-
+            'user_id' => auth()->id(),
+            'check_in_issue' => 'Incidencia de entrada',
+            'check_out_issue' => null,
+            'description' => null,
+            'time' => now()
         ]);
 
         return redirect()->route('dashboard')->with('warning', 'Incidencia registrada exitosamente.');
