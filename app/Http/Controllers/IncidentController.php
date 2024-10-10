@@ -17,8 +17,7 @@ class IncidentController extends Controller
     {
         Incident::create([
             'user_id' => auth()->id(),
-            'check_in_issue' => 'Incidencia de entrada',
-            'check_out_issue' => null,
+            'check_in_check_out_issue' => 'Entrada',
             'description' => null,
             'time' => now()
         ]);

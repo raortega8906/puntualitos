@@ -177,28 +177,28 @@
                 <div class="card card-primary mb-4">
                     <form method="POST" action="{{ route('incidents.issueStore') }}">
                         @csrf
-{{--                        <div class="card-body">--}}
-{{--                            <div class="mb-3">--}}
-{{--                                <label for="first_name" class="form-label">{{ __('Nombre') }}</label>--}}
-{{--                                <input type="text" name="first_name" class="form-control" id="first_name" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="mb-3">--}}
-{{--                                <label for="last_name" class="form-label">{{ __('Apellidos') }}</label>--}}
-{{--                                <input type="text" name="last_name" class="form-control" id="last_name" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="mb-3">--}}
-{{--                                <label for="departments" class="form-label">{{ __('Departamento') }}</label>--}}
-{{--                                <input type="text" name="departments" class="form-control" id="departments" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="mb-3">--}}
-{{--                                <label for="email" class="form-label">{{ __('Email') }}</label>--}}
-{{--                                <input type="email" name="email" class="form-control" id="email" required>--}}
-{{--                            </div>--}}
-{{--                            <div class="mb-3">--}}
-{{--                                <label for="password" class="form-label">{{ __('Contraseña') }}</label>--}}
-{{--                                <input type="password" name="password" class="form-control" id="password" required>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="first_name" class="form-label">{{ __('') }}</label>
+                                <input type="text" name="first_name" class="form-control" id="first_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="last_name" class="form-label">{{ __('Apellidos') }}</label>
+                                <input type="text" name="last_name" class="form-control" id="last_name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="departments" class="form-label">{{ __('Departamento') }}</label>
+                                <input type="text" name="departments" class="form-control" id="departments" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">{{ __('Email') }}</label>
+                                <input type="email" name="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">{{ __('Contraseña') }}</label>
+                                <input type="password" name="password" class="form-control" id="password" required>
+                            </div>
+                        </div>
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-success">{{ __('Crear') }}</button>
