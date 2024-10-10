@@ -215,7 +215,6 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         let userIp = '';
-        console.log('api')
 
         // Obtener la IP pública del usuario usando la API de ipify
         fetch('https://api.ipify.org?format=json')
