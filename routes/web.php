@@ -35,9 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
 
     // Rutas registro de incidencias
-    Route::get('/incident', [IncidentController::class, 'issueCreate'])->name('incidents.issueCreate');
-    Route::get('/incident', [IncidentController::class, 'issueIndex'])->name('incidents.issueIndex');
-    Route::post('/incident', [IncidentController::class, 'issueStore'])->name('incidents.issueStore');
+    Route::get('/incidents/create', [IncidentController::class, 'issueCreate'])->name('incidents.issueCreate');
+    Route::get('/incidents', [IncidentController::class, 'issueIndex'])->name('incidents.issueIndex');
+    Route::post('/incidents', [IncidentController::class, 'issueStore'])->name('incidents.issueStore');
 
     // Rutas profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
