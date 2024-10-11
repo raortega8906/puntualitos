@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
-        if($user->is_admin) {
+        if(auth()->user()->is_admin) {
             return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
         }
         else {
