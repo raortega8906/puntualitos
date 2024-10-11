@@ -88,11 +88,6 @@
         </div>
     </div>
 
-    <div class="text-center mt-20">
-        <h2 class="text-4xl font-bold mb-8">¿Listo para empezar?</h2>
-        <a href="{{ route('register') }}" class="btn-primary px-8 py-3 rounded-md text-lg">Crear cuenta gratis</a>
-    </div>
-
     <div class="mt-20">
         <h2 class="text-3xl font-bold mb-8 text-center">Características principales</h2>
         <div class="grid md:grid-cols-3 gap-8">
@@ -124,6 +119,11 @@
                 <p>Protege los datos de tu empresa con nuestro sistema de seguridad de última generación.</p>
             </div>
         </div>
+    </div>
+
+    <div class="text-center mt-20">
+        <h2 class="text-4xl font-bold mb-8">¿Listo para empezar?</h2>
+        <a href="{{ route('register') }}" class="btn-primary px-8 py-3 rounded-md text-lg">Crear cuenta gratis</a>
     </div>
 </main>
 
