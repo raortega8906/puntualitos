@@ -56,7 +56,14 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
-        return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');;
+        if($user->is_admin) {
+            return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
+        }
+        else {
+            return redirect()->route('dashboard', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
+        }
+
+
     }
 
     /**
