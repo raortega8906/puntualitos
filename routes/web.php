@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 // Ruta Principal
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // Ruta dashboard
 Route::get('/dashboard', function () {
