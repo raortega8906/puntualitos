@@ -34,7 +34,7 @@
                 <tbody>
                 @foreach($issues as $issue)
                     <tr class="align-middle">
-                        <td>{{ $issue->user_id }}</td>
+                        <td>{{ $issue->user->first_name }} {{ $issue->user->last_name }}</td>
                         <td>{{ $issue->check_in_check_out_issue }}</td>
                         <td>{{ $issue->description }}</td>
                         <td style="display: grid; justify-content: space-evenly;">

@@ -15,4 +15,9 @@ class Incident extends Model
         'description',
         'time',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
