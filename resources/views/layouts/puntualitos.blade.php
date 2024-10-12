@@ -122,7 +122,7 @@
                     </li>
                     <li class="nav-header mt-3">{{ __('MI EMPRESA') }}</li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-clock-history"></i>
+                        <a href="{{ route('attendance.index') }}" class="nav-link"> <i class="nav-icon bi bi-clock-history"></i>
                             <p>{{ __('Históricos') }}</p>
                         </a>
                     </li>

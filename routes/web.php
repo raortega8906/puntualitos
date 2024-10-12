@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 
     // Rutas registros entrada y salida
     Route::get('/dashboard', [AttendanceController::class, 'viewAttendance'])->name('dashboard');
+    Route::get('/attendances', [AttendanceController::class, 'viewHistoricAttendance'])->name('attendance.index');
     Route::post('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
     Route::post('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
 

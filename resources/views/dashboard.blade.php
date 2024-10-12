@@ -47,6 +47,22 @@
                     <div>{{ session('warning') }}</div>
                 </div>
             @endif
+            @if(session('error'))
+                <div class="alert alert-dannger alert-dismissible mt-2" id="message" style="color: #fff;
+                        background-color: #dc3545;
+                        border-color: #d32535;">
+                    <button type="button" class="close" id="close-btn" data-dismiss="alert" aria-hidden="true" style="position: absolute;
+                            top: 0;
+                            right: 0;
+                            z-index: 2;
+                            padding: .75rem 1.25rem;
+                            background-color: transparent;
+                            border: 0;
+                            color: inherit;">×
+                    </button>
+                    <div>{{ session('error') }}</div>
+                </div>
+            @endif
         </div> <!--end::Container-->
     </div> <!--end::App Content Header--> <!--begin::App Content-->
     <div class="app-content"> <!--begin::Container-->
@@ -112,7 +128,7 @@
                                             @if($attendance->check_out != null)
                                                 <td>{{ Carbon::parse($attendance->check_out)->format('H:i:s') }}</td>
                                             @else
-                                                <td> - </td>
+                                                <td> -</td>
                                             @endif
                                         </tr>
                                     @endif
@@ -120,10 +136,13 @@
                                 </tbody>
                             </table>
                         </div>
-                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
+                        <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
+                             xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path
+                                d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"></path>
                         </svg>
-                        <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
+                        <a href="#"
+                           class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
                             <i class="bi bi-link-45deg"></i>
                         </a>
                     </div> <!--end::Small Box Widget 2-->

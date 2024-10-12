@@ -9,13 +9,20 @@ class AttendanceController extends Controller
 {
     public function checkIn(Request $request)
     {
-        Attendance::create([
-            'user_id' => auth()->id(),
-            'check_in' => now(),
-            'ip_address_check_in' => $request->input('public_ip')
-        ]);
+        $attendance = Attendance::where('user_id', auth()->id())->latest()->first();
 
-        return redirect()->back()->with('status', 'Check-in registrado exitosamente.');
+        if(!$attendance || $attendance->check_out){
+            Attendance::create([
+                'user_id' => auth()->id(),
+                'check_in' => now(),
+                'ip_address_check_in' => $request->input('public_ip')
+            ]);
+
+            return redirect()->back()->with('status', 'Check-in registrado exitosamente.');
+        }
+
+        return redirect()->back()->with('error', 'No puedes hacer check-in sin haber hecho check-out.');
+
     }
 
     public function checkOut(Request $request)
@@ -31,7 +38,7 @@ class AttendanceController extends Controller
             return redirect()->back()->with('status', 'Check-out registrado exitosamente.');
         }
 
-        return redirect()->back()->withErrors(['message' => 'No puedes hacer check-out sin haber hecho check-in.']);
+        return redirect()->back()->with('error', 'No puedes hacer check-out sin haber hecho check-in.');
     }
 
     public function viewAttendance()
@@ -39,5 +46,12 @@ class AttendanceController extends Controller
         $attendances = Attendance::orderBy('created_at', 'desc')->get();
 
         return view('dashboard', compact('attendances'));
+    }
+
+    public function viewHistoricAttendance()
+    {
+        $attendances = Attendance::orderBy('created_at', 'desc')->paginate(10);
+
+        return view('attendances.index', compact('attendances'));
     }
 }
