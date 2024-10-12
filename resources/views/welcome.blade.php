@@ -193,12 +193,6 @@
     </div>
 </main>
 
-{{--<footer class="mt-20 py-6 text-center text-sm text-blue-900">--}}
-{{--    <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }}--}}
-{{--        <a class="hover:underline" href="https://rafaelortegaweb.wpcache.es">{{ __('Rafael A. Ortega') }}</a>.--}}
-{{--    </p>--}}
-{{--</footer>--}}
-
 <footer class="mt-20 py-6 bg-white shadow-md">
     <div class="container mx-auto px-6 flex justify-between items-center">
         <p class="text-sm text-blue-900">&copy; {{ date('Y') }} {{ __('Desarrollado por') }}
