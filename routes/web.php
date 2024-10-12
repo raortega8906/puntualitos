@@ -20,6 +20,11 @@ Route::get('/dashboard', function () {
 // Middleware autenticación
 Route::middleware('auth')->group(function () {
 
+    // Ruta Calendario
+    Route::get('/calendar', function () {
+        return view('calendar');
+    })->name('calendar');
+
     // Middleware admin
     Route::middleware([IsAdminMiddleware::class])->group(function () {
 

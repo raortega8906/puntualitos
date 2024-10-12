@@ -127,7 +127,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
+                        <a href="{{ route('calendar') }}" class="nav-link"> <i class="nav-icon bi bi-calendar-check"></i>
                             <p>{{ __('Calendario laboral') }}</p>
                         </a>
                     </li>
