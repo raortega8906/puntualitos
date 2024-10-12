@@ -49,7 +49,7 @@
     <div class="container mx-auto px-6 py-3 flex justify-between items-center">
         <div class="flex lg:justify-center lg:col-start-2 items-center">
             <a href="{{ route('welcome') }}"> <img class="logo w-20 h-20" src="{{ asset('images/logo_bg_removed.png') }}"
-                              alt="Puntualito Logo"></a>
+                                                   alt="Puntualito Logo"></a>
         </div>
 
         <div>
@@ -95,7 +95,7 @@
                 <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                          d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Registro en tiempo real') }}</h3>
                 <p>{{ __('Registra entradas y salidas al instante, manteniendo tus registros siempre actualizados.') }}</p>
@@ -119,6 +119,61 @@
                 <p>{{ __('Protege los datos de tu empresa con nuestro sistema de seguridad de última generación.') }}</p>
             </div>
         </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mt-8">
+            <div class="card rounded-lg shadow-lg p-6 text-center">
+                <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <h3 class="text-xl font-semibold mb-2">{{ __('Horario de Soporte') }}</h3>
+                <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                <p>Sábados: 10:00 AM - 2:00 PM</p>
+                <p>Domingos y festivos: Cerrado</p>
+            </div>
+            <div class="card rounded-lg shadow-lg p-6 text-center">
+                <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                </svg>
+                <h3 class="text-xl font-semibold mb-2">{{ __('Contacto') }}</h3>
+                <p>Para problemas técnicos o consultas, utiliza el formulario de reporte de incidencias en el dashboard.</p>
+                <p class="mt-2">Email: soporte@puntualitos.com</p>
+            </div>
+            <div class="card rounded-lg shadow-lg p-6 text-center">
+                <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                </svg>
+                <h3 class="text-xl font-semibold mb-2">{{ __('Recursos') }}</h3>
+                <p>Consulta nuestra documentación y guías de usuario en el dashboard para obtener más información sobre cómo usar Puntualitos de manera efectiva.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-20">
+        <h2 class="text-3xl font-bold mb-8 text-center">{{ __('Preguntas Frecuentes') }}</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="card rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-2">{{ __('¿Cómo registro mi entrada?') }}</h3>
+                <p>{{ __('Para registrar tu entrada, inicia sesión en tu cuenta, ve al dashboard y haz clic en el botón "Registrar entrada". Asegúrate de estar en tu lugar de trabajo al hacerlo.') }}</p>
+            </div>
+            <div class="card rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-2">{{ __('¿Qué hago si olvidé registrar mi salida?') }}</h3>
+                <p>{{ __('Si olvidaste registrar tu salida, contacta a tu supervisor o al departamento de RRHH a través del formulario de reporte de incidencias en el dashboard. Ellos podrán ajustar tu registro manualmente.') }}</p>
+            </div>
+            <div class="card rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-2">{{ __('¿Cómo puedo ver mi historial de registros?') }}</h3>
+                <p>{{ __('En el dashboard, encontrarás una sección de "Historial de Registros" donde podrás ver todos tus registros de entrada y salida, así como cualquier incidencia reportada.') }}</p>
+            </div>
+            <div class="card rounded-lg shadow-lg p-6">
+                <h3 class="text-xl font-semibold mb-2">{{ __('¿Cómo reporto una incidencia?') }}</h3>
+                <p>{{ __('Para reportar una incidencia, inicia sesión y ve al dashboard. Allí encontrarás un botón o enlace para "Reportar Incidencia". Completa el formulario con todos los detalles necesarios para que pueda ser atendida correctamente.') }}</p>
+            </div>
+        </div>
     </div>
 
     <div class="text-center mt-20">
@@ -128,9 +183,7 @@
 </main>
 
 <footer class="mt-20 py-6 text-center text-sm text-blue-900">
-    <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }}<a class="hover:underline" href="https://rafaelortegaweb.wpcache.es">{{ __('Rafael A. Ortega') }}</a>.</p>
+    <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }} <a class="hover:underline" href="https://rafaelortegaweb.wpcache.es">{{ __('Rafael A. Ortega') }}</a>.</p>
 </footer>
 </body>
 </html>
-
-

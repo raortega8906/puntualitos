@@ -136,15 +136,15 @@
                             <p>{{ __('Vacaciones') }}</p>
                         </a>
                     </li>
-                    <li class="nav-header mt-3">{{ __('PUNTUALITOS') }}</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-question-circle-fill"></i>
-                            <p>{{ __('Soporte') }}</p>
-                        </a>
-                    </li>
+{{--                    <li class="nav-header mt-3">{{ __('PUNTUALITOS') }}</li>--}}
+{{--                    <li class="nav-item">--}}
+{{--                        <a href="{{ route('support') }}" class="nav-link"> <i class="nav-icon bi bi-question-circle-fill"></i>--}}
+{{--                            <p>{{ __('Soporte') }}</p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
 
                     @if( Auth::user()->email == 'raortega8906@gmail.com')
-                        <li class="nav-header mt-5">{{ __('ADMINISTRACION') }}</li>
+                        <li class="nav-header mt-3">{{ __('ADMINISTRACION') }}</li>
                         <li class="nav-item">
                             <a href="{{ route('users.index') }}" class="nav-link"> <i class="nav-icon bi bi-person"></i>
                                 <p>{{ __('Usuarios') }}</p>
