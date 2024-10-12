@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('users', UserController::class)->only(['edit', 'update']);
 
     // Rutas registros entrada y salida
+    Route::get('/dashboard', [AttendanceController::class, 'viewAttendance'])->name('dashboard');
     Route::post('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
     Route::post('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
 

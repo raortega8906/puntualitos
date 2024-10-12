@@ -33,4 +33,11 @@ class AttendanceController extends Controller
 
         return redirect()->back()->withErrors(['message' => 'No puedes hacer check-out sin haber hecho check-in.']);
     }
+
+    public function viewAttendance()
+    {
+        $attendances = Attendance::orderBy('created_at', 'desc')->get();
+
+        return view('dashboard', compact('attendances'));
+    }
 }

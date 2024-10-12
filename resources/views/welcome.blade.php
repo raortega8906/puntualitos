@@ -128,7 +128,7 @@
 </main>
 
 <footer class="mt-20 py-6 text-center text-sm text-blue-900">
-    <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }}<a class="hover:underline" href="https://rafaelortegaweb.wpcache.es">{{ __('Rafael A. Ortega) }}</a>.</p>
+    <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }}<a class="hover:underline" href="https://rafaelortegaweb.wpcache.es">{{ __('Rafael A. Ortega') }}</a>.</p>
 </footer>
 </body>
 </html>
