@@ -71,18 +71,32 @@
                 <div class="col-lg-4 col-8"> <!--begin::Small Box Widget 1-->
                     <div class="small-box text-bg-primary">
                         <div class="inner" style="display: grid;">
+                            <div id="tempo"></div>
                             <h3>{{ __('Registros') }}</h3>
+
                             <form method="POST" action="{{ route('check-in') }}" style="display: contents;">
                                 @csrf
-                                <button type="submit" class="btn btn btn-block btn-success btn-lg mb-2">
-                                    {{ __('Registrar entrada') }}
-                                </button>
+                                @if($flag_checkin)
+                                    <button type="submit" class="btn btn btn-block btn-success btn-lg mb-2">
+                                        {{ __('Registrar entrada') }}
+                                    </button>
+                                @else
+                                    <button type="submit" class="btn btn btn-block btn-success btn-lg mb-2" disabled>
+                                        {{ __('Registrar entrada') }}
+                                    </button>
+                                @endif
                             </form>
                             <form method="POST" action="{{ route('check-out') }}" style="display: contents;">
                                 @csrf
-                                <button type="submit" class="btn btn-danger btn-lg mb-2">
-                                    {{ __('Registrar salida') }}
-                                </button>
+                                @if($flag_checkout)
+                                    <button type="submit" class="btn btn-danger btn-lg mb-2">
+                                        {{ __('Registrar salida') }}
+                                    </button>
+                                @else
+                                    <button type="submit" class="btn btn-danger btn-lg mb-2" id="pause_checkout" disabled>
+                                        {{ __('Registrar salida') }}
+                                    </button>
+                                @endif
                             </form>
                             <a href="{{ route('incidents.issueCreate') }}" class="btn btn-warning btn-lg mb-2">
                                 {{ __('Registrar incidencia') }}

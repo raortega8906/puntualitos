@@ -16,4 +16,9 @@ class Attendance extends Model
         'ip_address_check_in',
         'ip_address_check_out'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
