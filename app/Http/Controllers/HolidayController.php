@@ -12,7 +12,9 @@ class HolidayController extends Controller
      */
     public function index()
     {
-        //
+        $holidays = Holiday::paginate(10);
+
+        return view('holidays.index', compact('holidays'));
     }
 
     /**
@@ -20,7 +22,7 @@ class HolidayController extends Controller
      */
     public function create()
     {
-        //
+        return view('holidays.create');
     }
 
     /**
@@ -44,7 +46,7 @@ class HolidayController extends Controller
      */
     public function edit(Holiday $holiday)
     {
-        //
+        return view('holidays.edit', compact('holiday'));
     }
 
     /**

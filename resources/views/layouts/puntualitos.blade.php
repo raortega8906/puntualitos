@@ -132,7 +132,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"> <i class="nav-icon bi bi-airplane"></i>
+                        <a href="{{ route('holidays.index') }}" class="nav-link"> <i class="nav-icon bi bi-airplane"></i>
                             <p>{{ __('Vacaciones') }}</p>
                         </a>
                     </li>
