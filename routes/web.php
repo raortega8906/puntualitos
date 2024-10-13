@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\HolidayController;
 use App\Http\Controllers\IncidentController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
@@ -45,6 +46,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/incidents/create', [IncidentController::class, 'issueCreate'])->name('incidents.issueCreate');
     Route::get('/incidents', [IncidentController::class, 'issueIndex'])->name('incidents.issueIndex');
     Route::post('/incidents', [IncidentController::class, 'issueStore'])->name('incidents.issueStore');
+
+    // Rutas vacaciones
+    Route::resource('holidays', HolidayController::class);
 
     // Rutas profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
             'first_name' => 'Rafael A.',
             'last_name' => 'Ortega Valderrama',
             'departments' => 'Desarrollo',
+            'holidays' => 22,
             'email' => 'raortega8906@gmail.com',
             'password' => bcrypt('laravel2024.'),
             'is_admin' => 1,
