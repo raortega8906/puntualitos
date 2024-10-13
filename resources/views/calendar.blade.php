@@ -1,6 +1,16 @@
 @extends('layouts.puntualitos')
 
 @section('content')
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fullcalendar/main.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css?v=3.2.0">
+    <style>
+        ol.breadcrumb.float-sm-end {
+            background: transparent;
+        }
+    </style>
+
     <!--begin::App Content Header-->
     <div class="app-content-header">
         <div class="container-fluid">
@@ -9,7 +19,7 @@
                     <h3 class="mb-0">{{ __('Dashboard') }}</h3>
                 </div>
                 <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-end" style="background: transparent;">
+                    <ol class="breadcrumb float-sm-end">
                         <li class="breadcrumb-item"><a href="#">{{ __('Home') }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
                             {{ __('Dashboard') }}
