@@ -28,11 +28,16 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.min.css"
           integrity="sha256-Qsx5lrStHZyR9REqhUF8iQt73X06c8LGIUPzpOhwRrI=" crossorigin="anonymous">
     <!--end::Third Party Plugin(Bootstrap Icons)--><!--begin::Required Plugin(AdminLTE)-->
-    <link rel="stylesheet" href="../../dist/css/adminlte.css"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
+    <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.css') }}"><!--end::Required Plugin(AdminLTE)--><!-- apexcharts -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css"
           integrity="sha256-4MX+61mt9NVvvuPjUWdUdyfZfxSB1/Rf9WtqRHgG5S0=" crossorigin="anonymous"><!-- jsvectormap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css"
           integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/plugins/fullcalendar/main.css">
+    <link rel="stylesheet" href="https://adminlte.io/themes/v3/dist/css/adminlte.min.css?v=3.2.0">
 </head> <!--end::Head--> <!--begin::Body-->
 
 <body class="layout-fixed sidebar-expand-lg bg-body-tertiary"> <!--begin::App Wrapper-->
@@ -55,11 +60,11 @@
                     </a></li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
                 <li class="nav-item dropdown user-menu"><a href="#" class="nav-link dropdown-toggle"
                                                            data-bs-toggle="dropdown"> <img
-                            src="../../dist/assets/img/avatar4.png" class="user-image rounded-circle shadow"
+                            src="{{ asset('dist/assets/img/avatar4.png') }}" class="user-image rounded-circle shadow"
                             alt="Avatar Image"> <span class="d-none d-md-inline">{{ Auth::user()->first_name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
-                        <li class="user-header text-bg-primary"><img src="../../dist/assets/img/avatar4.png"
+                        <li class="user-header text-bg-primary"><img src="{{ asset('dist/assets/img/avatar4.png') }}"
                                                                      class="rounded-circle shadow" alt="Avatar Image">
                             <p>
                                 {{ Auth::user()->first_name }}
@@ -84,7 +89,7 @@
     </nav> <!--end::Header--> <!--begin::Sidebar-->
     <aside class="app-sidebar bg-body-secondary shadow" data-bs-theme="dark"> <!--begin::Sidebar Brand-->
         <div class="sidebar-brand"> <!--begin::Brand Link--> <a href="{{ route('welcome')}}" class="brand-link">
-                <!--begin::Brand Image--> <img src="../../images/logo_bg_removed.png" alt="Puntualitos Logo"
+                <!--begin::Brand Image--> <img src="{{ asset('/images/logo_bg_removed.png') }}" alt="Puntualitos Logo"
                                                class="brand-image opacity-75 shadow"> <!--end::Brand Image-->
                 <!--begin::Brand Text--> <span class="brand-text fw-light">{{ __('Puntualitos') }}</span> <!--end::Brand Text-->
             </a> <!--end::Brand Link--> </div> <!--end::Sidebar Brand--> <!--begin::Sidebar Wrapper-->
@@ -178,8 +183,10 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script>
 <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-<script src="../../dist/js/adminlte.js"></script> <!--end::Required Plugin(AdminLTE)-->
+<script src="{{ asset('/dist/js/adminlte.js') }}"></script> <!--end::Required Plugin(AdminLTE)-->
 <!--begin::OverlayScrollbars Configure-->
+
+
 <script>
     const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
     const Default = {
