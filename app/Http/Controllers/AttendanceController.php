@@ -20,7 +20,7 @@ class AttendanceController extends Controller
             else {
                 Attendance::create([
                     'user_id' => auth()->id(),
-                    'check_in' => now(),
+                    'check_in' => now()->addHours(2),
                     'ip_address_check_in' => $request->input('public_ip')
                 ]);
 
@@ -50,7 +50,7 @@ class AttendanceController extends Controller
                 $dateParts = explode(' ', $check_in);
                 $date = $dateParts[0];
 
-                if($date != now()->toDateString()) {
+                    if ($date != now()->addHours(2)->toDateString()) {
                     $attendance->update([
                         'check_out' => $date.' 23:59:00',
                         'ip_address_check_out' => $request->input('public_ip')
@@ -58,7 +58,7 @@ class AttendanceController extends Controller
                 }
                 else {
                     $attendance->update([
-                        'check_out' => now(),
+                        'check_out' => now()->addHours(2),
                         'ip_address_check_out' => $request->input('public_ip')
                     ]);
                 }
@@ -78,18 +78,18 @@ class AttendanceController extends Controller
         $flag_checkout = false;
 
         // Obtener el día de la semana (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
-        $dayOfWeek = now()->dayOfWeek;
+        $dayOfWeek = now()->addHours(2)->dayOfWeek;
 
         // Verificar si es viernes o fin de semana
         $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 0); // Sábado o Domingo
         $isFriday = ($dayOfWeek == 5); // Viernes
 
         $count_checkin = Attendance::where('user_id', auth()->id())
-            ->whereDate('check_in', now()->toDateString())
+            ->whereDate('check_in', now()->addHours(2)->toDateString())
             ->count();
 
         $count_checkout = Attendance::where('user_id', auth()->id())
-            ->whereDate('check_out', now()->toDateString())
+            ->whereDate('check_out', now()->addHours(2)->toDateString())
             ->count();
 
         if($attend && !$attend->check_out) {
@@ -108,24 +108,23 @@ class AttendanceController extends Controller
         }
 
         // Validaciones especiales
-//        if ($isFriday) {
-//            // Solo una entrada y una salida
-//            if ($count_checkin >= 1) {
-//                $flag_checkin = false;
-//            }
-//            if ($count_checkout >= 1) {
-//                $flag_checkout = false;
-//            }
-//        } elseif ($isWeekend) {
-//            // Deshabilitar ambos botones los fines de semana
-//            $flag_checkin = false;
-//            $flag_checkout = false;
-//        }
+        if ($isFriday) {
+            // Solo una entrada y una salida
+            if ($count_checkin >= 1) {
+                $flag_checkin = false;
+            }
+            if ($count_checkout >= 1) {
+                $flag_checkout = false;
+            }
+        } elseif ($isWeekend) {
+            // Deshabilitar ambos botones los fines de semana
+            $flag_checkin = false;
+            $flag_checkout = false;
+        }
 
         $attendances = Attendance::orderBy('created_at', 'desc')->get();
 
-        return view('dashboard', compact('attendances', 'flag_checkin', 'flag_checkout'));
-//        return view('dashboard', compact('attendances', 'flag_checkin', 'flag_checkout', 'isWeekend', 'isFriday'));
+        return view('dashboard', compact('attendances', 'flag_checkin', 'flag_checkout', 'isWeekend', 'isFriday'));
     }
 
     public function viewHistoricAttendance()
