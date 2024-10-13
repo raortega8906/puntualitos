@@ -94,7 +94,6 @@
 
     <script src="https://adminlte.io/themes/v3/plugins/moment/moment.min.js"></script>
     <script src="https://adminlte.io/themes/v3/plugins/fullcalendar/main.js"></script>
-    <script src="https://adminlte.io/themes/v3/plugins/fullcalendar/main.js"></script>
 
     <script src="https://adminlte.io/themes/v3/dist/js/demo.js"></script>
 
