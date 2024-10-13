@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('holidays', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->text('reason');
             $table->string('beginning');
             $table->string('finished');
             $table->string('status');
