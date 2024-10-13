@@ -16,6 +16,11 @@
                         </li>
                     </ol>
                 </div>
+                <div class="col-sm-6">
+                    <a href="{{ route('holidays.create') }}" class="btn btn-primary mt-2">
+                        {{ __('Crear vacaciones') }}
+                    </a>
+                </div>
             </div> <!--end::Row-->
             @if(session('status'))
                 <div class="alert alert-success alert-dismissible mt-2" id="message">
@@ -55,19 +60,19 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>{{ __('Nombre y Apellidos') }}</th>
-                    <th>{{ __('Email') }}</th>
-                    <th>{{ __('Departamento') }}</th>
+                    <th>{{ __('Fecha de inicio') }}</th>
+                    <th>{{ __('Fecha de finalización') }}</th>
+                    <th>{{ __('Estado') }}</th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-{{--                @foreach($users as $user)--}}
-{{--                    <tr class="align-middle">--}}
-{{--                        <td>{{ $user->first_name }} {{ $user->last_name }}</td>--}}
-{{--                        <td>{{ $user->email }}</td>--}}
-{{--                        <td>{{ $user->departments }}</td>--}}
-{{--                        <td style="display: grid; justify-content: space-evenly;">--}}
+                @foreach($holidays as $holiday)
+                    <tr class="align-middle">
+                        <td>{{ $holiday->beginning }}</td>
+                        <td>{{ $holiday->finished }}</td>
+                        <td>{{ $holiday->status }}</td>
+                        <td style="display: grid; justify-content: space-evenly;">
 {{--                            <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary position-relative mb-2">--}}
 {{--                                {{ __('Editar') }}--}}
 {{--                            </a>--}}
@@ -79,9 +84,9 @@
 {{--                                    {{ __('Eliminar') }}--}}
 {{--                                </button>--}}
 {{--                            </form>--}}
-{{--                        </td>--}}
-{{--                    </tr>--}}
-{{--                @endforeach--}}
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
 
