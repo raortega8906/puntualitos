@@ -14,7 +14,7 @@ class HolidayController extends Controller
      */
     public function index()
     {
-        $holidays = Holiday::latest()->paginate(10) ;
+        $holidays = Holiday::where('user_id', auth()->user()->id)->latest()->paginate(10) ;
 
         return view('holidays.index', compact('holidays'));
     }
