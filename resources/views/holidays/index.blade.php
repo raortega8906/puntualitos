@@ -73,17 +73,17 @@
                         <td>{{ $holiday->finished }}</td>
                         <td>{{ $holiday->status }}</td>
                         <td style="display: grid; justify-content: space-evenly;">
-{{--                            <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary position-relative mb-2">--}}
-{{--                                {{ __('Editar') }}--}}
-{{--                            </a>--}}
-{{--                            <form method="POST" action="{{ route('users.destroy', $user) }}"--}}
-{{--                                  onsubmit="return confirm('¿Estás seguro que quieres eliminar el usuario?')">--}}
-{{--                                @method('DELETE')--}}
-{{--                                @csrf--}}
-{{--                                <button type="submit" class="btn btn-danger">--}}
-{{--                                    {{ __('Eliminar') }}--}}
-{{--                                </button>--}}
-{{--                            </form>--}}
+                            <a href="{{ route('holidays.edit', $holiday) }}" class="btn btn-secondary position-relative mb-2">
+                                {{ __('Editar') }}
+                            </a>
+                            <form method="POST" action="{{ route('holidays.destroy', $holiday) }}"
+                                  onsubmit="return confirm('¿Estás seguro que quieres eliminar estas vacaciones?')">
+                                @method('DELETE')
+                                @csrf
+                                <button type="submit" class="btn btn-danger">
+                                    {{ __('Eliminar') }}
+                                </button>
+                            </form>
                         </td>
                     </tr>
                 @endforeach
