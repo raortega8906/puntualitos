@@ -6,37 +6,87 @@
 <a href="#"><img src="https://img.shields.io/github/license/raortega8906/puntualitos" alt="License"></a>
 </p>
 
-# App en construcción
 
-## Sobre Puntualitos
+# Puntualitos
 
-**Puntualitos** es una aplicación desarrollada con Laravel. Intuitiva y profesional para la gestión de horarios y asistencia de empleados. Inspirada en la puntualidad y eficiencia, permite a los trabajadores registrar fácilmente sus entradas y salidas, mientras que los administradores pueden controlar y generar reportes detallados de asistencia. Con un diseño minimalista y amigable, **Puntualitos** facilita una gestión de tiempos precisa y organizada, ideal para pequeñas y medianas empresas.
+**Puntualitos** is a Laravel web application designed for efficient management of employee schedules and attendance. It offers a professional and intuitive interface, allowing quick check-ins and check-outs, as well as detailed reporting of work hours. Ideal for small and medium-sized businesses seeking a streamlined time management solution.
 
-### Características clave:
-- Registro rápido y sencillo de horarios de empleados.
-- Generación de reportes detallados de asistencia.
-- Interfaz minimalista para una experiencia fluida.
-- Gestión de tiempo precisa y organizada.
+## Features
 
-### Público objetivo:
-- Pequeñas y medianas empresas.
-- Administradores de recursos humanos.
-- Empleados que desean una manera simple y efectiva de registrar su tiempo laboral.
+- **Easy check-ins**: Employees can easily log their working hours.
+- **Detailed reporting**: Generate customizable attendance reports.
+- **User-friendly interface**: Clean design for an enhanced user experience.
+- **Accurate control**: Helps improve punctuality and team efficiency.
 
-## Diseño de Marca
+## Requirements
 
-## Contribuciones
+Make sure you have the following installed:
 
-Gracias por considerar contribuir a **Puntualitos**. La guía de contribución estará disponible en breve.
+- PHP >= 8.1
+- Composer
+- Node.js (for asset management with Vite)
+- MySQL or any other compatible database
 
-## Código de Conducta
+## Installation
 
-Para asegurar que la comunidad de **Puntualitos** sea acogedora para todos, por favor revisa y sigue el [Código de Conducta](#).
+Follow these steps to set up the project locally:
 
-## Vulnerabilidades de seguridad
+1. Clone this repository:
 
-Si descubres una vulnerabilidad de seguridad en **Puntualitos**, por favor envía un correo a Rafael A. Ortega vía [raortega8906@gmail.com](mailto:raortega8906@gmail.com). Todas las vulnerabilidades serán atendidas de manera rápida.
+    ```bash
+    git clone https://github.com/raortega8906/puntualitos.git
+    cd puntualitos
+    ```
 
-## Licencia
+2. Install PHP and Node.js dependencies:
 
-**Puntualitos** es software de código abierto licenciado bajo la [MIT license](https://opensource.org/licenses/MIT).
+    ```bash
+    composer install
+    npm install
+    ```
+
+3. Create the `.env` file from the example provided:
+
+    ```bash
+    cp .env.example .env
+    ```
+
+4. Generate the application key:
+
+    ```bash
+    php artisan key:generate
+    ```
+
+5. Configure the database credentials in the `.env` file.
+
+6. Run the database migrations:
+
+    ```bash
+    php artisan migrate
+    ```
+
+7. Compile the assets:
+
+    ```bash
+    npm run dev
+    ```
+
+8. Start the development server:
+
+    ```bash
+    php artisan serve
+    ```
+
+Your application should be running at [http://localhost:8000](http://localhost:8000).
+
+## Contribution
+
+Contributions are welcome! If you'd like to collaborate, please open an issue or submit a pull request.
+
+## Security
+
+If you discover any security vulnerabilities, please report them to [raortega8906@gmail.com](mailto:raortega8906@gmail.com).
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
