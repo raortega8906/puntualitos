@@ -10,6 +10,9 @@
         ol.breadcrumb.float-sm-end {
             background: transparent;
         }
+        .external-event {
+            cursor: auto;
+        }
     </style>
 
     {{--    dd($global['holidays']);--}}
@@ -19,13 +22,13 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">{{ __('Dashboard') }}</h3>
+                    <h3 class="mb-0">{{ __('Calendario') }}</h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
                         <li class="breadcrumb-item"><a href="#">{{ __('Home') }}</a></li>
                         <li class="breadcrumb-item active" aria-current="page">
-                            {{ __('Dashboard') }}
+                            {{ __('Calendario') }}
                         </li>
                     </ol>
                 </div>
@@ -58,25 +61,42 @@
     </div>
 
     <!-- Calendario Laboral -->
-    <div class="row">
-        <div class="col-md-3 d-none">
-            <div class="card">
-                <div class="card-header">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="sticky-top mb-3">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Leyenda</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="external-events"   >
+                                    <div class="external-event bg-success ui-draggable ui-draggable-handle"
+                                         style="position: relative;">Feriados
+                                    </div>
+                                    <div class="external-event bg-primary ui-draggable ui-draggable-handle"
+                                         style="position: relative;">Vacaciones
+                                    </div>
+                                    <div class="external-event bg-danger ui-draggable ui-draggable-handle"
+                                         style="position: relative;">No laborables
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div id="external-events"></div>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-11 mx-5">
-            <div class="card card-primary">
-                <div class="card-body p-0">
-                    <div id="calendar" class="fc fc-media-screen fc-direction-ltr fc-theme-bootstrap"></div>
+                <div class="col-md-9">
+                    <div class="card card-primary">
+                        <div class="card-body p-0">
+                            <div id="calendar" class="fc fc-media-screen fc-direction-ltr fc-theme-bootstrap"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <script src="https://adminlte.io/themes/v3/plugins/jquery/jquery.min.js"></script>
 
@@ -89,29 +109,22 @@
     <script src="https://adminlte.io/themes/v3/plugins/moment/moment.min.js"></script>
     <script src="https://adminlte.io/themes/v3/plugins/fullcalendar/main.js"></script>
 
-    <script src="https://adminlte.io/themes/v3/dist/js/demo.js"></script>
-
     <script>
         $(function () {
 
-            /* initialize the calendar
-             -----------------------------------------------------------------*/
-            //Date for the calendar events (dummy data)
-            var date = new Date()
-            var d = date.getDate(),
+            // Initialize the calendar
+            let date = new Date()
+            let d = date.getDate(),
                 m = date.getMonth(),
                 y = date.getFullYear()
 
-            var Calendar = FullCalendar.Calendar;
-            var Draggable = FullCalendar.Draggable;
+            let Calendar = FullCalendar.Calendar;
+            let Draggable = FullCalendar.Draggable;
 
-            var containerEl = document.getElementById('external-events');
-            var checkbox = document.getElementById('drop-remove');
-            var calendarEl = document.getElementById('calendar');
+            let containerEl = document.getElementById('external-events');
+            let calendarEl = document.getElementById('calendar');
 
             // initialize the external events
-            // -----------------------------------------------------------------
-
             new Draggable(containerEl, {
                 itemSelector: '.external-event',
                 eventData: function (eventEl) {
@@ -124,7 +137,7 @@
                 }
             });
 
-            var calendar = new Calendar(calendarEl, {
+            let calendar = new Calendar(calendarEl, {
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
@@ -136,26 +149,16 @@
                         @foreach($holidays as $holiday)
                     {
                         title: 'Vacaciones',
-                        start: '{{ $holiday->beginning }}', // Asegúrate de usar comillas para las fechas
-                        end: '{{ date('Y-m-d', strtotime($holiday->finished . ' + 1 days')) }}', // Asegúrate de usar comillas aquí también
+                        start: '{{ $holiday->beginning }}',
+                        end: '{{ date('Y-m-d', strtotime($holiday->finished . ' + 1 days')) }}',
                         allDay: true
                     },
                     @endforeach
                 ],
-                editable: true,
-                droppable: true, // this allows things to be dropped onto the calendar !!!
-                drop: function (info) {
-                    // is the "remove after drop" checkbox checked?
-                    if (checkbox.checked) {
-                        // if so, remove the element from the "Draggable Events" list
-                        info.draggedEl.parentNode.removeChild(info.draggedEl);
-                    }
-                }
+                editable: false
             });
 
             calendar.render();
-            // $('#calendar').fullCalendar()
-
         })
     </script>
 
