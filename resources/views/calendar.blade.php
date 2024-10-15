@@ -14,9 +14,7 @@
             cursor: auto;
         }
     </style>
-
-    {{--    dd($global['holidays']);--}}
-
+    
     <!--begin::App Content Header-->
     <div class="app-content-header">
         <div class="container-fluid">
