@@ -67,7 +67,6 @@
                     <div id="external-events"></div>
                 </div>
             </div>
-
         </div>
 
         <div class="col-md-11 mx-5">
