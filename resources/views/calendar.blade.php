@@ -59,7 +59,7 @@
 
     <!-- Calendario Laboral -->
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 d-none">
             <div class="card">
                 <div class="card-header">
                 </div>
@@ -70,7 +70,7 @@
 
         </div>
 
-        <div class="col-md-9">
+        <div class="col-md-11 mx-5">
             <div class="card card-primary">
                 <div class="card-body p-0">
                     <div id="calendar" class="fc fc-media-screen fc-direction-ltr fc-theme-bootstrap"></div>
