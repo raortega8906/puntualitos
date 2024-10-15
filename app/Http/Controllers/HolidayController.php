@@ -79,10 +79,12 @@ class HolidayController extends Controller
         return redirect()->route('holidays.index', compact('holiday'))->with('delete', 'Las vacaciones fue eliminada satisfactoriamente');;
     }
 
-    public static function showHolidays()
+    public function showHolidays()
     {
-        $global['holidays'] = Holiday::where('user_id', auth()->user()->id)->get();
+        // Obtén solo las vacaciones del usuario autenticado
+        $holidays = Holiday::where('user_id', auth()->user()->id)->get();
 
-        return $global;
+        // Devuelve la vista con la variable 'holidays'
+        return view('calendar', compact('holidays'));
     }
 }

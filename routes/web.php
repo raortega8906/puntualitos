@@ -21,11 +21,6 @@ Route::get('/dashboard', function () {
 // Middleware autenticación
 Route::middleware('auth')->group(function () {
 
-    // Ruta Calendario
-    Route::get('/calendar', function () {
-        return view('calendar');
-    })->name('calendar');
-
     // Middleware admin
     Route::middleware([IsAdminMiddleware::class])->group(function () {
 
@@ -49,6 +44,7 @@ Route::middleware('auth')->group(function () {
 
     // Rutas vacaciones
     Route::resource('holidays', HolidayController::class);
+    Route::get('/calendar', [HolidayController::class, 'showHolidays'])->name('calendar');
 
     // Rutas profile
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
