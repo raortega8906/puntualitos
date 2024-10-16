@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreHolidayRequest;
 use App\Http\Requests\UpdateHolidayRequest;
 use App\Models\Holiday;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HolidayController extends Controller
@@ -32,6 +33,28 @@ class HolidayController extends Controller
      */
     public function store(StoreHolidayRequest $request)
     {
+        $beginning = Carbon::parse($request->input('beginning'));
+        $finished = Carbon::parse($request->input('finished'));
+
+        $cant_holiday = 0;
+
+        // Itera sobre el rango de fechas desde el comienzo hasta el final (Chat GPT)
+        for ($date = $beginning; $date->lte($finished); $date->addDay()) {
+            if (!$date->isWeekend()) {
+                $cant_holiday++;
+            }
+        }
+
+        $holiday_used = auth()->user()->holidays - $cant_holiday;
+
+        if($holiday_used < $cant_holiday) {
+            return redirect()->route('holidays.index')->with('delete', 'No es posible realizar la petición de vacaciones.');
+        }
+
+        auth()->user()->update([
+            'holidays' => $holiday_used
+        ]);
+
         Holiday::create([
             'user_id' => auth()->id(),
             'beginning' => $request->input('beginning'),

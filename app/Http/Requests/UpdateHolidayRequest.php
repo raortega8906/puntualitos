@@ -23,7 +23,7 @@ class UpdateHolidayRequest extends FormRequest
     {
         return [
             'beginning' => ['required', 'date'],
-            'finished' => ['required', 'date', 'after_or_equal:beginning'],
+            'finished' => ['required', 'date', 'after_or_equal:beginning']
         ];
     }
 
@@ -36,7 +36,7 @@ class UpdateHolidayRequest extends FormRequest
     {
         return [
             'beginning.after_or_equal' => 'La fecha de inicio debe ser hoy o posterior.',
-            'finished.after_or_equal' => 'La fecha de finalización debe ser igual o posterior a la fecha de inicio.',
+            'finished.after_or_equal' => 'La fecha de finalización debe ser igual o posterior a la fecha de inicio.'
         ];
     }
 }

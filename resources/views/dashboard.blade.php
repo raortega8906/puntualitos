@@ -184,9 +184,9 @@
                     <div class="small-box text-bg-warning">
                         <div class="inner">
                             <h3>{{ __('Mis vacaciones') }}</h3>
-                            <p>{{ __('Vacaciones al año: '). Auth::user()->holidays }}</p>
-                            <p>{{ __('Vacaciones usadas: '). 0 }}</p>
-                            <p>{{ __('Vacaciones restantes: '). 0 }}</p>
+                            <p>{{ __('Vacaciones al año: '). 22 }}</p>
+                            <p>{{ __('Vacaciones usadas: '). 22 - Auth::user()->holidays }}</p>
+                            <p>{{ __('Vacaciones restantes: '). Auth::user()->holidays }}</p>
                         </div>
                         <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">

@@ -13,7 +13,7 @@ class Holiday extends Model
         'user_id',
         'beginning',
         'finished',
-        'status'
+        'status',
     ];
 
     public function user()

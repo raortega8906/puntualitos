@@ -14,7 +14,7 @@
             cursor: auto;
         }
     </style>
-    
+
     <!--begin::App Content Header-->
     <div class="app-content-header">
         <div class="container-fluid">
