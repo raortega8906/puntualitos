@@ -78,7 +78,7 @@
 
     <div class="flex items-center mt-10">
         <div class="rounded-lg p-6">
-            <img class="rounded rounded-[10px]" src="{{ asset('images/register.png') }}">
+            <img class="rounded rounded-[10px]" src="{{ asset('images/register-2.png') }}">
         </div>
     </div>
 
