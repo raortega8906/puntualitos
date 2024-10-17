@@ -71,8 +71,8 @@
                     <tr class="align-middle">
                         <td>{{ $holiday->beginning }}</td>
                         <td>{{ $holiday->finished }}</td>
-                        <td>{{ $holiday->status }}</td>
-                        <td style="display: grid; justify-content: space-evenly;">
+                        <td class="grid items-center text-center"><span class="badge bg-warning items-center text-center">{{ $holiday->status }}</span></td>
+                        <td class="grid items-center text-center">
                             <a href="{{ route('holidays.edit', $holiday) }}" class="btn btn-secondary position-relative mb-2">
                                 {{ __('Editar') }}
                             </a>
