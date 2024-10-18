@@ -169,7 +169,7 @@
                             <p>{{ __('Nombre: '). Auth::user()->first_name }}</p>
                             <p>{{ __('Apellidos: '). Auth::user()->last_name }}</p>
                             <p>{{ __('Departamento: '). Auth::user()->departments }}</p>
-                            <p>{{ __('Email: '). Auth::user()->email }}</p>
+                            <p>{{ __('Email: '). Auth::user()->email }}</p> 
                         </div>
                         <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
