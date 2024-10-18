@@ -3,8 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Puntualitos</title>
+    <title>{{ __('Puntualitos') }}</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('/images/logo_bg_removed.png') }}" type="image/x-icon">
@@ -72,7 +71,7 @@
 
 <main class="container mx-auto mt-10 px-6">
     <div class="text-center">
-        <h1 class="text-6xl font-bold mb-8 gradient-text">{{ __('Bienvenido a Puntualitos') }}</h1>
+        <h1 class="text-5xl sm:text-6xl font-bold mb-8 gradient-text">{{ __('Bienvenido a Puntualitos') }}</h1>
         <p class="text-xl mb-8">{{ __('La forma más sencilla de gestionar entradas y salidas en tu empresa') }}</p>
     </div>
 
@@ -154,12 +153,12 @@
 {{--        </div>--}}
 {{--    </div>--}}
 
-    <div class="grid grid-cols-2 items-center mt-20">
-        <div class="rounded-lg p-8">
-            <img class="rounded rounded-[10px]" src="{{ asset('images/dashboard.png') }}">
+    <div class="grid grid-cols-1 sm:grid-cols-2 items-center mt-20">
+        <div class="rounded-lg p-8 w-full">
+            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/dashboard.png') }}">
         </div>
-        <div class="rounded-lg p-8">
-            <img class="rounded rounded-[10px]" src="{{ asset('images/calendar.png') }}">
+        <div class="rounded-lg p-8 w-full">
+            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/calendar.png') }}">
         </div>
     </div>
 
@@ -203,7 +202,7 @@
     </div>
 
     <div class="text-center mt-20">
-        <h2 class="text-4xl font-bold mb-8">{{ __('¿Listo para empezar?') }}</h2>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-8">{{ __('¿Listo para empezar?') }}</h2>
         <a href="{{ route('register') }}"
            class="btn-primary px-8 py-3 rounded-md text-lg">{{ __('Crear cuenta gratis') }}</a>
     </div>
