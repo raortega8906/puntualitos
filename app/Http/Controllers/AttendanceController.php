@@ -52,7 +52,7 @@ class AttendanceController extends Controller
 
                     if ($date != now()->addHours(2)->toDateString()) {
                     $attendance->update([
-                        'check_out' => $date.' 23:59:00',
+                        'check_out' => $date.' 23:59:59',
                         'ip_address_check_out' => $request->input('public_ip')
                     ]);
                 }
