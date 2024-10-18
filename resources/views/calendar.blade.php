@@ -107,22 +107,16 @@
     <script src="https://adminlte.io/themes/v3/plugins/moment/moment.min.js"></script>
     <script src="https://adminlte.io/themes/v3/plugins/fullcalendar/main.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.10.1/locales/es.js"></script>
+
     <script>
         $(function () {
-
-            // Initialize the calendar
-            let date = new Date()
-            let d = date.getDate(),
-                m = date.getMonth(),
-                y = date.getFullYear()
-
             let Calendar = FullCalendar.Calendar;
             let Draggable = FullCalendar.Draggable;
 
             let containerEl = document.getElementById('external-events');
             let calendarEl = document.getElementById('calendar');
 
-            // initialize the external events
             new Draggable(containerEl, {
                 itemSelector: '.external-event',
                 eventData: function (eventEl) {
@@ -135,29 +129,114 @@
                 }
             });
 
-            let calendar = new Calendar(calendarEl, {
-                headerToolbar: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
-                },
-                themeSystem: 'bootstrap',
-                //Random default events
-                events: [
-                        @foreach($holidays as $holiday)
-                    {
-                        title: 'Vacaciones',
-                        start: '{{ $holiday->beginning }}',
-                        end: '{{ date('Y-m-d', strtotime($holiday->finished . ' + 1 days')) }}',
-                        allDay: true
-                    },
-                    @endforeach
-                ],
-                editable: false
+            // Obtener vacaciones desde Laravel
+            let holidays = @json($holidays); // Vacaciones
+
+            // Función para detectar fines de semana
+            function isWeekend(date) {
+                const day = date.getDay();
+                return day === 0 || day === 6; // Domingo (0) o Sábado (6)
+            }
+
+            // Array para guardar los eventos
+            let events = [];
+
+            // Agregar las vacaciones (en azul) al array de eventos
+            holidays.forEach(function(holiday) {
+                events.push({
+                    title: 'Vacaciones',
+                    start: holiday.beginning,
+                    end: moment(holiday.finished).add(1, 'days').format('YYYY-MM-DD'),
+                    allDay: true,
+                    backgroundColor: 'blue',
+                    borderColor: 'blue'
+                });
+
+                // Generar eventos para fines de semana (en rojo)
+                let startDate = moment(holiday.beginning);
+                let endDate = moment(holiday.finished);
+                for (let date = startDate.clone(); date.isSameOrBefore(endDate); date.add(1, 'days')) {
+                    if (isWeekend(date.toDate())) {
+                        events.push({
+                            title: 'Fin de semana',
+                            start: date.format('YYYY-MM-DD'),
+                            allDay: true,
+                            backgroundColor: 'red',
+                            borderColor: 'red'
+                        });
+                    }
+                }
             });
 
-            calendar.render();
-        })
+            // Obtener festivos de la API
+            const apiKey = 'olBQbC1o2ynOA0CtzVo5wanhELBwaQSm'; // Reemplaza con tu clave de API
+            const year = new Date().getFullYear(); // Obtiene el año actual
+            const country = 'ES'; // Código de país para España
+            const location = 'Madrid'
+
+            const translations = {
+                "New Year's Day": "Año Nuevo",
+                "Epiphany": "Día de Reyes",
+                "Good Friday": "Viernes Santo",
+                "Easter Sunday": "Domingo de Resurrección",
+                "Labour Day": "Día del Trabajador",
+                "Assumption of Mary": "Asunción de la Virgen",
+                "National Day": "Día Nacional de España",
+                "All Saints' Day": "Día de Todos los Santos",
+                "Immaculate Conception": "Inmaculada Concepción",
+                "Christmas Day": "Navidad",
+                "Boxing Day": "Día de San Esteban",
+                "New Year's Eve": "Nochevieja",
+                "Candlemas": "Candelaria",
+                "Saint Joseph's Day": "Día de San José",
+                "Saint James' Day": "Día de Santiago",
+                "Saint Andrew's Day": "Día de San Andrés",
+                "San Isidro": "San Isidro",
+                "San Juan": "San Juan",
+                "Day of the Region": "Día de la Región"
+                // Agrega más traducciones según sea necesario
+            };
+
+
+            fetch(`https://calendarific.com/api/v2/holidays?api_key=${apiKey}&country=${country}&year=${year}&location=${location}`)
+                .then(response => response.json())
+                .then(data => {
+                    const festivos = data.response.holidays;
+
+                    // Agregar festivos (en verde) al array de eventos
+                    festivos.forEach(function(festivo) {
+                        const title = translations[festivo.name] || festivo.name; // Usa la traducción o el nombre original
+                        events.push({
+                            title: title,
+                            start: festivo.date.iso,
+                            allDay: true,
+                            backgroundColor: 'green',
+                            borderColor: 'green'
+                        });
+                    });
+
+                    // Inicializar el calendario después de cargar los festivos
+                    let calendar = new Calendar(calendarEl, {
+                        locale: 'es',
+                        headerToolbar: {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                        },
+                        themeSystem: 'bootstrap',
+                        events: events,  // Cargar todos los eventos generados
+                        editable: false
+                    });
+
+                    calendar.render();
+                })
+                .catch(error => {
+                    console.error('Error fetching holidays:', error);
+                });
+
+        });
     </script>
+
+
 
 @endsection
