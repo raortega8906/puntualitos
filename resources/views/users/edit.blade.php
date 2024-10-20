@@ -29,22 +29,28 @@
                         <div class="mb-3">
                             <label for="first_name" class="form-label">{{ __('Nombre') }}</label>
                             <input type="text" name="first_name" class="form-control" id="first_name"
-                                   aria-describedby="first_name" value="{{ $user->first_name }}">
+                                   aria-describedby="first_name" value="{{ $user->first_name }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="last_name" class="form-label">{{ __('Apellidos') }}</label>
                             <input type="text" name="last_name" class="form-control" id="last_name"
-                                   aria-describedby="last_name" value="{{ $user->last_name }}">
+                                   aria-describedby="last_name" value="{{ $user->last_name }}" required>
                         </div>
                         <div class="mb-3">
                             <label for="departments" class="form-label">{{ __('Departamento') }}</label>
-                            <input type="text" name="departments" class="form-control" id="departments"
-                                   aria-describedby="departments" value="{{ $user->departments }}">
+                            <select name="departments" id="departments" aria-describedby="departments" class="form-control" required autofocus>
+                                <option value="{{ $user->departments }}" disabled selected>{{ $user->departments }}</option>
+                                <option value="Desarrollo">{{ __('Desarrollo') }}</option>
+                                <option value="Cuentas">{{ __('Cuentas') }}</option>
+                                <option value="Diseño">{{ __('Diseño') }}</option>
+                                <option value="Vídeo">{{ __('Vídeo') }}</option>
+                                <option value="RRHH">{{ __('RRHH') }}</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">{{ __('Email') }}</label>
                             <input type="email" name="email" class="form-control" id="email" aria-describedby="email"
-                                   value="{{ $user->email }}">
+                                   value="{{ $user->email }}" required>
                         </div>
                     </div>
 
@@ -56,4 +62,17 @@
 
         </div> <!--end::Container-->
     </div> <!--end::App Content-->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const departmentsSelect = document.getElementById('departments');
+            const selectedOptionValue = departmentsSelect.options[0].value;
+
+            for (let i = 1; i < departmentsSelect.options.length; i++) {
+                if (departmentsSelect.options[i].value === selectedOptionValue) {
+                    departmentsSelect.options[i].style.display = 'none';
+                }
+            }
+        });
+    </script>
 @endsection

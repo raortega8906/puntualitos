@@ -43,11 +43,11 @@
             <x-input-label for="departments" :value="__('Departmentos')" />
             <select id="departments" name="departments" class="block mt-1 w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required autofocus>
                 <option value="0" disabled selected></option>
-                <option value="Desarrollo">Desarrollo</option>
-                <option value="Cuentas">Cuentas</option>
-                <option value="Diseño">Diseño</option>
-                <option value="Vídeo">Vídeo</option>
-                <option value="RRHH">RRHH</option>
+                <option value="Desarrollo">{{ __('Desarrollo') }}</option>
+                <option value="Cuentas">{{ __('Cuentas') }}</option>
+                <option value="Diseño">{{ __('Diseño') }}</option>
+                <option value="Vídeo">{{ __('Vídeo') }}</option>
+                <option value="RRHH">{{ __('RRHH') }}</option>
             </select>
             <x-input-error :messages="$errors->get('departments')" class="mt-2" />
         </div>
