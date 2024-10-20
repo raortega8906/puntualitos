@@ -174,7 +174,7 @@
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Horario de Soporte') }}</h3>
                 <p>Lunes a Viernes: 09:00 - 18:00</p>
-                <p>Sábados, Domingos y festivos: No operativo</p>
+                <p>Sábados, Domingos y Festivos: No operativo</p>
             </div>
             <div class="card rounded-lg shadow-lg p-6 text-center">
                 <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
