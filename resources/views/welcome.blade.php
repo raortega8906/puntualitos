@@ -86,13 +86,13 @@
             <h2 class="text-2xl font-bold mb-4">{{ __('Registro Fácil') }}</h2>
             <p class="mb-4">{{ __('Registra entradas y salidas con solo un clic. Nuestra interfaz intuitiva hace que el proceso
                 sea rápido y sin complicaciones.') }}</p>
-            <a href="#" class="btn-primary px-6 py-2 rounded-md inline-block">{{ __('Aprende más') }}</a>
+            <a href="{{ asset('videos/demo.webm') }}" class="btn-primary px-6 py-2 rounded-md inline-block">{{ __('Ver demo') }}</a>
         </div>
         <div class="card rounded-lg shadow-lg p-8">
             <h2 class="text-2xl font-bold mb-4">{{ __('Reportes Detallados') }}</h2>
             <p class="mb-4">{{ __('Obtén informes completos sobre la asistencia y los horarios de tu equipo. Toma decisiones
                 informadas con datos precisos.') }}</p>
-            <a href="#" class="btn-primary px-6 py-2 rounded-md inline-block">{{ __('Ver demo') }}</a>
+            <a href="https://github.com/raortega8906/puntualitos/blob/main/README.md" target="_blank" class="btn-primary px-6 py-2 rounded-md inline-block">{{ __('Revisa nuestra documentación') }}</a>
         </div>
     </div>
 
@@ -106,7 +106,7 @@
                           d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Registro en tiempo real') }}</h3>
-                <p>{{ __('Registra entradas y salidas al instante, manteniendo tus registros siempre actualizados.') }}</p>
+                <p>{{ __('Registra entradas y salidas al instante. Solicita y actualiza tus vacaciones.') }}</p>
             </div>
             <div class="card rounded-lg shadow-lg p-6 text-center">
                 <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -115,7 +115,7 @@
                           d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Informes personalizados') }}</h3>
-                <p>{{ __('Genera informes detallados adaptados a las necesidades específicas de tu empresa.') }}</p>
+                <p>{{ __('Genera informes detallados de tu historial de registros.') }}</p>
             </div>
             <div class="card rounded-lg shadow-lg p-6 text-center">
                 <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -124,7 +124,7 @@
                           d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Seguridad avanzada') }}</h3>
-                <p>{{ __('Protege los datos de tu empresa con nuestro sistema de seguridad de última generación.') }}</p>
+                <p>{{ __('Protege tu información personal y registros con nuestro sistema.') }}</p>
             </div>
         </div>
 
@@ -174,8 +174,7 @@
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Horario de Soporte') }}</h3>
                 <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
-                <p>Sábados: 10:00 AM - 2:00 PM</p>
-                <p>Domingos y festivos: Cerrado</p>
+                <p>Sábados, Domingos y festivos: Cerrado</p>
             </div>
             <div class="card rounded-lg shadow-lg p-6 text-center">
                 <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -186,7 +185,6 @@
                 <h3 class="text-xl font-semibold mb-2">{{ __('Contacto') }}</h3>
                 <p>Para problemas técnicos o consultas, utiliza el formulario de reporte de incidencias en el
                     dashboard.</p>
-                <p class="mt-2">Email: soporte@puntualitos.com</p>
             </div>
             <div class="card rounded-lg shadow-lg p-6 text-center">
                 <svg class="w-12 h-12 mx-auto mb-4 text-blue-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -195,8 +193,7 @@
                           d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
                 </svg>
                 <h3 class="text-xl font-semibold mb-2">{{ __('Recursos') }}</h3>
-                <p>Consulta nuestra documentación y guías de usuario en el dashboard para obtener más información sobre
-                    cómo usar Puntualitos de manera efectiva.</p>
+                <p>Consulta nuestra documentación y guías de usuario obtener más información.</p>
             </div>
         </div>
     </div>
