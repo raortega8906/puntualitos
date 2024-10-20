@@ -193,10 +193,16 @@
                 "Saint Andrew's Day": "Día de San Andrés",
                 "San Isidro": "San Isidro",
                 "San Juan": "San Juan",
-                "Day of the Region": "Día de la Región"
+                "Day of the Region": "Día de la Región",
+                "Hispanic Day": "Día de la Hispanidad",
+                "Daylight Saving Time ends": "Finaliza el horario de verano",
+                "Constitution Day": "Día de la constitución",
+                "December Solstice": "Solsticio de diciembre",
+                "Christmas Eve": "Nochebuena",
+                "Feast of the Holy Family": "Fiesta de la Sagrada Familia",
+                "Reconquest Day": "Día de la Reconquista",
                 // Agrega más traducciones según sea necesario
             };
-
 
             fetch(`https://calendarific.com/api/v2/holidays?api_key=${apiKey}&country=${country}&year=${year}&location=${location}`)
                 .then(response => response.json())
