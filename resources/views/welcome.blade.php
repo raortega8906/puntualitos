@@ -130,29 +130,6 @@
 
     </div>
 
-        {{--  Valorar si se queda o se elimina  --}}
-{{--    <div class="mt-20">--}}
-{{--        <h2 class="text-3xl font-bold mb-8 text-center">{{ __('Preguntas Frecuentes') }}</h2>--}}
-{{--        <div class="grid md:grid-cols-2 gap-8">--}}
-{{--            <div class="card rounded-lg shadow-lg p-6">--}}
-{{--                <h3 class="text-xl font-semibold mb-2">{{ __('¿Cómo registro mi entrada?') }}</h3>--}}
-{{--                <p>{{ __('Para registrar tu entrada, inicia sesión en tu cuenta, ve al dashboard y haz clic en el botón "Registrar entrada". Asegúrate de estar en tu lugar de trabajo al hacerlo.') }}</p>--}}
-{{--            </div>--}}
-{{--            <div class="card rounded-lg shadow-lg p-6">--}}
-{{--                <h3 class="text-xl font-semibold mb-2">{{ __('¿Qué hago si olvidé registrar mi salida?') }}</h3>--}}
-{{--                <p>{{ __('Si olvidaste registrar tu salida, contacta a tu supervisor o al departamento de RRHH a través del formulario de reporte de incidencias en el dashboard. Ellos podrán ajustar tu registro manualmente.') }}</p>--}}
-{{--            </div>--}}
-{{--            <div class="card rounded-lg shadow-lg p-6">--}}
-{{--                <h3 class="text-xl font-semibold mb-2">{{ __('¿Cómo puedo ver mi historial de registros?') }}</h3>--}}
-{{--                <p>{{ __('En el dashboard, encontrarás una sección de "Historial de Registros" donde podrás ver todos tus registros de entrada y salida, así como cualquier incidencia reportada.') }}</p>--}}
-{{--            </div>--}}
-{{--            <div class="card rounded-lg shadow-lg p-6">--}}
-{{--                <h3 class="text-xl font-semibold mb-2">{{ __('¿Cómo reporto una incidencia?') }}</h3>--}}
-{{--                <p>{{ __('Para reportar una incidencia, inicia sesión y ve al dashboard. Allí encontrarás un botón o enlace para "Reportar Incidencia". Completa el formulario con todos los detalles necesarios para que pueda ser atendida correctamente.') }}</p>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center mt-20">
         <div class="rounded-lg p-8 w-full">
             <img class="rounded rounded-[10px] w-full" src="{{ asset('images/dashboard.png') }}">
