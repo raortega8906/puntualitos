@@ -35,4 +35,7 @@ return [
         ],
     ],
 
+    'calendarific' => [
+        'api_key' => env('API_KEY_CALENDARIFIC'),
+    ],
 ];

@@ -169,7 +169,7 @@
             });
 
             // Obtener festivos de la API
-            const apiKey = 'olBQbC1o2ynOA0CtzVo5wanhELBwaQSm'; // Reemplaza con tu clave de API
+            const apiKey = '{{ config('services.calendarific.api_key') }}';
             const year = new Date().getFullYear(); // Obtiene el año actual
             const country = 'ES'; // Código de país para España
             const location = 'Madrid'
