@@ -40,9 +40,9 @@
                         @if(auth()->user()->id == $attendance->user_id && $i++ < 10)
                             <tr>
                                 <td>{{ Carbon::parse($attendance->created_at)->format('Y/m/d') }}</td>
-                                <td>{{ Carbon::parse($attendance->check_in)->format('H:i:s') }}</td>
+                                <td>{{ Carbon::parse($attendance->check_in)->format('H:i') }}</td>
                                 @if($attendance->check_out != null)
-                                    <td>{{ Carbon::parse($attendance->check_out)->format('H:i:s') }}</td>
+                                    <td>{{ Carbon::parse($attendance->check_out)->format('H:i') }}</td>
                                 @else
                                     <td> -</td>
                                 @endif
