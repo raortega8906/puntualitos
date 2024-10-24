@@ -53,6 +53,7 @@
                             <label for="finished" class="form-label">{{ __('Fecha de finalización') }}</label>
                             <input type="date" name="finished" class="form-control" id="finished" required>
                         </div>
+                        <p>{{ __('Vacaciones restantes: '). Auth::user()->holidays }}</p>
                     </div>
 
                     <div class="card-footer">
