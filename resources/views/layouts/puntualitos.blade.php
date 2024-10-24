@@ -216,7 +216,8 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // let userIp = '79.117.222.102';
-        let userIp = '';
+        // let userIp = '81.43.79.158';
+        // let userIp = '';
 
         // Obtener la IP pública del usuario usando la API de ipify
         fetch('https://api.ipify.org?format=json', { mode: 'no-cors' })
