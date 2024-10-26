@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreHolidayRequest;
+use App\Http\Requests\UpdateAdminHolidayRequest;
 use App\Http\Requests\UpdateHolidayRequest;
 use App\Models\Holiday;
 use Carbon\Carbon;
@@ -131,7 +132,7 @@ class HolidayController extends Controller
         return view('admin.holidays.edit', compact('holiday'));
     }
 
-    public function updateAdminHolidays(UpdateHolidayRequest $request, Holiday $holiday)
+    public function updateAdminHolidays(UpdateAdminHolidayRequest $request, Holiday $holiday)
     {
         if(!auth()->user()->is_admin) {
             abort(403, 'No autorizado.');
@@ -139,6 +140,6 @@ class HolidayController extends Controller
 
         $holiday->update($request->validated());
 
-        return redirect()->route('admin.holidays.index')->with('status', 'El estado de la vacación fue actualizado.');
+        return redirect()->route('admin.holidays.index')->with('status', 'El estado de las vacaciones fue actualizado exitosamente.');
     }
 }

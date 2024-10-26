@@ -42,17 +42,17 @@
     <div class="app-content"> <!--begin::Container-->
         <div class="container-fluid"> <!--begin::Row-->
             <div class="card card-primary mb-4">
-                <form method="POST" action="{{ route('holidays.update', $holiday) }}">
+                <form method="POST" action="{{ route('admin.holidays.update', $holiday) }}">
                     @method('PUT')
                     @csrf
                     <div class="card-body">
                         <div class="mb-3">
-                            <label for="beginning" class="form-label">{{ __('Fecha de inicio') }}</label>
-                            <input type="date" name="beginning" class="form-control" id="beginning" value="{{ old('beginning', $holiday->beginning ?? '') }}" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="finished" class="form-label">{{ __('Fecha de finalización') }}</label>
-                            <input type="date" name="finished" class="form-control" id="finished" value="{{ old('finished', $holiday->finished ?? '') }}" required>
+                            <label for="beginning" class="form-label">{{ __('Estado de la vacación') }}</label>
+                            <select class="form-control" name="status" id="status">
+                                <option value="en espera" {{ $holiday->status == 'en espera' ? 'selected' : '' }}>{{ __('En espera') }}</option>
+                                <option value="finalizada" {{ $holiday->status == 'aprobadas' ? 'selected' : '' }}>{{ __('Aprobadas') }}</option>
+                                <option value="cancelada" {{ $holiday->status == 'canceladas' ? 'selected' : '' }}>{{ __('Canceladas') }}</option>
+                            </select>
                         </div>
                     </div>
 
