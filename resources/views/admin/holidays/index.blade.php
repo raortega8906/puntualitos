@@ -55,18 +55,26 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
+                    <th>{{ __('Empleados') }}</th>
                     <th>{{ __('Fecha de inicio') }}</th>
                     <th>{{ __('Fecha de finalización') }}</th>
                     <th>{{ __('Estado') }}</th>
-                    <th></th>
+                    <th>{{ __('Acciones') }}</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach($holidays as $holiday)
                     <tr class="align-middle">
+                        <td>{{ $holiday->user->first_name }} {{ $holiday->user->last_name }}</td>
                         <td>{{ $holiday->beginning }}</td>
                         <td>{{ $holiday->finished }}</td>
-                        <td class="grid items-center text-center"><span class="badge bg-warning items-center text-center">{{ $holiday->status }}</span></td>
+                        @if($holiday->status == 'en espera')
+                            <td class="grid items-center text-center"><span class="badge bg-warning items-center text-center">{{ $holiday->status }}</span></td>
+                        @elseif($holiday->status == 'aprobadas')
+                            <td class="grid items-center text-center"><span class="badge bg-success items-center text-center">{{ $holiday->status }}</span></td>
+                        @elseif($holiday->status == 'canceladas')
+                            <td class="grid items-center text-center"><span class="badge bg-danger items-center text-center">{{ $holiday->status }}</span></td>
+                        @endif
                         <td class="grid items-center text-center">
                             <a href="{{ route('admin.holidays.edit', $holiday) }}" class="btn btn-secondary position-relative mb-2">
                                 {{ __('Editar') }}

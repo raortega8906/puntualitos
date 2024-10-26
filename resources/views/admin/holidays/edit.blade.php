@@ -50,8 +50,8 @@
                             <label for="beginning" class="form-label">{{ __('Estado de la vacación') }}</label>
                             <select class="form-control" name="status" id="status">
                                 <option value="en espera" {{ $holiday->status == 'en espera' ? 'selected' : '' }}>{{ __('En espera') }}</option>
-                                <option value="finalizada" {{ $holiday->status == 'aprobadas' ? 'selected' : '' }}>{{ __('Aprobadas') }}</option>
-                                <option value="cancelada" {{ $holiday->status == 'canceladas' ? 'selected' : '' }}>{{ __('Canceladas') }}</option>
+                                <option value="aprobadas" {{ $holiday->status == 'aprobadas' ? 'selected' : '' }}>{{ __('Aprobadas') }}</option>
+                                <option value="canceladas" {{ $holiday->status == 'canceladas' ? 'selected' : '' }}>{{ __('Canceladas') }}</option>
                             </select>
                         </div>
                     </div>

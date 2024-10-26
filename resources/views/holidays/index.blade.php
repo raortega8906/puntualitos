@@ -63,7 +63,7 @@
                     <th>{{ __('Fecha de inicio') }}</th>
                     <th>{{ __('Fecha de finalización') }}</th>
                     <th>{{ __('Estado') }}</th>
-                    <th></th>
+                    <th>{{ __('Acciones') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -71,20 +71,35 @@
                     <tr class="align-middle">
                         <td>{{ $holiday->beginning }}</td>
                         <td>{{ $holiday->finished }}</td>
-                        <td class="grid items-center text-center"><span class="badge bg-warning items-center text-center">{{ $holiday->status }}</span></td>
-                        <td class="grid items-center text-center">
-                            <a href="{{ route('holidays.edit', $holiday) }}" class="btn btn-secondary position-relative mb-2">
-                                {{ __('Editar') }}
-                            </a>
-                            <form method="POST" action="{{ route('holidays.destroy', $holiday) }}"
-                                  onsubmit="return confirm('¿Estás seguro que quieres eliminar estas vacaciones?')">
-                                @method('DELETE')
-                                @csrf
-                                <button type="submit" class="btn btn-danger">
-                                    {{ __('Eliminar') }}
-                                </button>
-                            </form>
-                        </td>
+                        @if($holiday->status == 'en espera')
+                            <td class="grid items-center text-center"><span class="badge bg-warning items-center text-center">{{ $holiday->status }}</span></td>
+                        @elseif($holiday->status == 'aprobadas')
+                            <td class="grid items-center text-center"><span class="badge bg-success items-center text-center">{{ $holiday->status }}</span></td>
+                        @elseif($holiday->status == 'canceladas')
+                            <td class="grid items-center text-center"><span class="badge bg-danger items-center text-center">{{ $holiday->status }}</span></td>
+                        @endif
+
+                        @if($holiday->status == 'en espera')
+                            <td class="grid items-center text-center">
+                                <a href="{{ route('holidays.edit', $holiday) }}" class="btn btn-secondary position-relative mb-2">
+                                    {{ __('Editar') }}
+                                </a>
+                                <form method="POST" action="{{ route('holidays.destroy', $holiday) }}"
+                                    onsubmit="return confirm('¿Estás seguro que quieres eliminar estas vacaciones?')">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button type="submit" class="btn btn-danger">
+                                        {{ __('Eliminar') }}
+                                    </button>
+                                </form>
+                            </td>
+                        @else
+                            <td class="max-w-[80%] inline-flex items-center text-center">
+                                <span class="max-w-[80%] inline-flex pl-8">{{ __('El estado de tus vacaciones no puede ser modificado.') }}</span> 
+                                    <br>
+                                <span class="max-w-[80%] inline-flex pl-8">{{ __('Crea una incidencia en caso de necesitar modificación.') }}</span>
+                            </td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>

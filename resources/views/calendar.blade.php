@@ -131,6 +131,7 @@
 
             // Obtener vacaciones desde Laravel
             let holidays = @json($holidays); // Vacaciones
+            console.log(holidays);
 
             // Función para detectar fines de semana
             function isWeekend(date) {
@@ -141,32 +142,38 @@
             // Array para guardar los eventos
             let events = [];
 
+            // BEGIN validación para solo mostrar las vacaciones que han sido aprobadas
+            
             // Agregar las vacaciones (en azul) al array de eventos
             holidays.forEach(function(holiday) {
-                events.push({
-                    title: 'Vacaciones',
-                    start: holiday.beginning,
-                    end: moment(holiday.finished).add(1, 'days').format('YYYY-MM-DD'),
-                    allDay: true,
-                    backgroundColor: 'blue',
-                    borderColor: 'blue'
-                });
+                if(holiday.status == 'aprobadas') {
+                    events.push({
+                        title: 'Vacaciones',
+                        start: holiday.beginning,
+                        end: moment(holiday.finished).add(1, 'days').format('YYYY-MM-DD'),
+                        allDay: true,
+                        backgroundColor: 'blue',
+                        borderColor: 'blue'
+                    });
 
-                // Generar eventos para fines de semana (en rojo)
-                let startDate = moment(holiday.beginning);
-                let endDate = moment(holiday.finished);
-                for (let date = startDate.clone(); date.isSameOrBefore(endDate); date.add(1, 'days')) {
-                    if (isWeekend(date.toDate())) {
-                        events.push({
-                            title: 'Fin de semana',
-                            start: date.format('YYYY-MM-DD'),
-                            allDay: true,
-                            backgroundColor: 'red',
-                            borderColor: 'red'
-                        });
+                    // Generar eventos para fines de semana (en rojo)
+                    let startDate = moment(holiday.beginning);
+                    let endDate = moment(holiday.finished);
+                    for (let date = startDate.clone(); date.isSameOrBefore(endDate); date.add(1, 'days')) {
+                        if (isWeekend(date.toDate())) {
+                            events.push({
+                                title: 'Fin de semana',
+                                start: date.format('YYYY-MM-DD'),
+                                allDay: true,
+                                backgroundColor: 'red',
+                                borderColor: 'red'
+                            });
+                        }
                     }
                 }
             });
+
+            // END validación para solo mostrar las vacaciones que han sido aprobadas
 
             // Obtener festivos de la API
             const apiKey = '{{ config('services.calendarific.api_key') }}';
