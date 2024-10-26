@@ -110,4 +110,35 @@ class HolidayController extends Controller
         // Devuelve la vista con la variable 'holidays'
         return view('calendar', compact('holidays'));
     }
+
+    // Admin: Vacaciones
+    public function indexAdminHolidays()
+    {
+        if(!auth()->user()->is_admin) {
+            abort(403, 'No autorizado.');
+        }
+        $holidays = Holiday::paginate(10);
+
+        return view('admin.holidays.index', compact('holidays'));
+    }
+
+    public function editAdminHolidays(Holiday $holiday)
+    {
+        if(!auth()->user()->is_admin) {
+            abort(403, 'No autorizado.');
+        }
+
+        return view('admin.holidays.edit', compact('holiday'));
+    }
+
+    public function updateAdminHolidays(UpdateHolidayRequest $request, Holiday $holiday)
+    {
+        if(!auth()->user()->is_admin) {
+            abort(403, 'No autorizado.');
+        }
+
+        $holiday->update($request->validated());
+
+        return redirect()->route('admin.holidays.index')->with('status', 'El estado de la vacación fue actualizado.');
+    }
 }

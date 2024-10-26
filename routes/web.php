@@ -25,6 +25,11 @@ Route::middleware('auth')->group(function () {
 
         // Rutas usuarios admin sin 'EDIT' y 'UPDATE'
         Route::resource('users', UserController::class)->except(['edit', 'update']);
+
+        // Rutas vacaciones
+        Route::get('/admin/holidays', [HolidayController::class, 'indexAdminHolidays'])->name('admin.holidays.index');
+        Route::get('/admin/holidays/{holiday}/edit', [HolidayController::class, 'editAdminHolidays'])->name('admin.holidays.edit');
+        Route::put('/admin/holidays/{holiday}', [HolidayController::class, 'updateAdminHolidays'])->name('admin.holidays.update');
     });
 
     // Rutas usuarios no admin solo con 'EDIT' y 'UPDATE'

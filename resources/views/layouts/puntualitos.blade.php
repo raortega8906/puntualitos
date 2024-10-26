@@ -142,7 +142,7 @@
                         </a>
                     </li>
 
-                    @if( Auth::user()->email == 'raortega8906@gmail.com')
+                    @if( Auth::user()->email == 'raortega8906@gmail.com' && Auth::user()->is_admin)
                         <li class="nav-header mt-3">{{ __('ADMINISTRACION') }}</li>
                         <li class="nav-item">
                             <a href="{{ route('users.index') }}" class="nav-link"> <i class="nav-icon bi bi-person"></i>
@@ -153,6 +153,12 @@
                         <li class="nav-item">
                             <a href="{{ route('incidents.issueIndex') }}" class="nav-link"> <i class="nav-icon bi bi-clipboard-check"></i>
                                 <p>{{ __('Incidencias') }}</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.holidays.index') }}" class="nav-link"> <i class="nav-icon bi bi-clipboard-check"></i>
+                                <p>{{ __('Estado vacaciones') }}</p>
                             </a>
                         </li>
                     @endif
