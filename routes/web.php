@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/admin/holidays', [HolidayController::class, 'indexAdminHolidays'])->name('admin.holidays.index');
         Route::get('/admin/holidays/{holiday}/edit', [HolidayController::class, 'editAdminHolidays'])->name('admin.holidays.edit');
         Route::put('/admin/holidays/{holiday}', [HolidayController::class, 'updateAdminHolidays'])->name('admin.holidays.update');
+
+        // Exportar datos de registro de entrada y salida
+        Route::get('/export-admin-attendance', [AttendanceController::class, 'exportAdminAttendance'])->name('export-admin-attendance');
     });
 
     // Rutas usuarios no admin solo con 'EDIT' y 'UPDATE'
@@ -49,6 +52,9 @@ Route::middleware('auth')->group(function () {
     // Rutas vacaciones
     Route::resource('holidays', HolidayController::class);
     Route::get('/calendar', [HolidayController::class, 'showHolidays'])->name('calendar');
+
+    // Exportar datos de registro de entrada y salida
+    Route::get('/export-attendance', [AttendanceController::class, 'exportAttendance'])->name('export-attendance');
 });
 
 require __DIR__.'/auth.php';

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AttendanceExport;
 use App\Models\Attendance;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AttendanceController extends Controller
 {
@@ -118,8 +120,8 @@ class AttendanceController extends Controller
             }
         } elseif ($isWeekend) {
             // Deshabilitar ambos botones los fines de semana
-            $flag_checkin = false;
-            $flag_checkout = false;
+            $flag_checkin = true;
+            $flag_checkout = true;
         }
 
         $attendances = Attendance::orderBy('created_at', 'desc')->get();
@@ -134,5 +136,48 @@ class AttendanceController extends Controller
             ->paginate(10);
 
         return view('attendances.index', compact('attendances'));
+    }
+
+    // Exportar datos de registro de entrada y salida
+    public function exportAttendance()
+    {
+        $attendances = Attendance::where('user_id', auth()->user()->id)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+        $headers = ['Nombre', 'Registro de entrada', 'Registro de salida', 'IP de entrada', 'IP de salida'];
+        $data = [];
+
+        foreach ($attendances as $attendance) {
+            $data[] = [
+                $attendance->user->first_name . ' ' . $attendance->user->last_name,
+                $attendance->check_in,
+                $attendance->check_out,
+                $attendance->ip_address_check_in,
+                $attendance->ip_address_check_out
+            ];
+        }
+
+        return Excel::download(new AttendanceExport($headers, $data), 'registros-entrada-salida.csv');
+    }
+
+    public function exportAdminAttendance()
+    {
+        $attendances = Attendance::all();
+
+        $headers = ['Nombre', 'Registro de entrada', 'Registro de salida', 'IP de entrada', 'IP de salida'];
+        $data = [];
+
+        foreach ($attendances as $attendance) {
+            $data[] = [
+                $attendance->user->first_name . ' ' . $attendance->user->last_name,
+                $attendance->check_in,
+                $attendance->check_out,
+                $attendance->ip_address_check_in,
+                $attendance->ip_address_check_out
+            ];
+        }
+
+        return Excel::download(new AttendanceExport($headers, $data), 'registros-entrada-salida-admin.csv');
     }
 }

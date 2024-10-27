@@ -2,16 +2,22 @@
 
 namespace App\Exports;
 
-use App\Models\Attendance;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromArray;
 
-class AttendanceExport implements FromCollection
+class AttendanceExport implements FromArray
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    protected $headers;
+    protected $data;
+
+    public function __construct(array $headers, array $data)
     {
-        return Attendance::all();
+        $this->headers = $headers;
+        $this->data = $data;
+    }
+
+    public function array(): array
+    {
+        // Combina las cabeceras con los datos
+        return array_merge([$this->headers], $this->data);
     }
 }

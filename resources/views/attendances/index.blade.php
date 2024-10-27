@@ -16,6 +16,10 @@
                         </li>
                     </ol>
                 </div>
+
+                <div class="col-sm-6">
+                    <a class="btn btn-warning" href="{{ route('export-attendance') }}"><i class="fa fa-download"></i> Exportar registros</a>
+                </div>
             </div> <!--end::Row-->
         </div> <!--end::Container-->
     </div> <!--end::App Content Header--> <!--begin::App Content-->
