@@ -138,6 +138,13 @@ class AttendanceController extends Controller
         return view('attendances.index', compact('attendances'));
     }
 
+    public function viewHistoricAdminAttendance()
+    {
+        $attendances = Attendance::paginate(10);
+
+        return view('admin.attendances.index', compact('attendances'));
+    }
+
     // Exportar datos de registro de entrada y salida
     public function exportAttendance()
     {

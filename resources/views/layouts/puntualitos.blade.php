@@ -157,8 +157,14 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.holidays.index') }}" class="nav-link"> <i class="nav-icon bi bi-clipboard-check"></i>
+                            <a href="{{ route('admin.holidays.index') }}" class="nav-link"> <i class="nav-icon bi bi-pencil-square"></i>
                                 <p>{{ __('Estado vacaciones') }}</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{ route('admin.attendances.index') }}" class="nav-link"> <i class="nav-icon bi bi-archive"></i>
+                                <p>{{ __('Registos empleados') }}</p>
                             </a>
                         </li>
                     @endif

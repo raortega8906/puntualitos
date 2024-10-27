@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="col-sm-6">
-                    <a class="btn btn-success" href="{{ route('export-attendance') }}"><i class="bi bi-filetype-csv"></i> Exportar registros</a>
+                    <a class="btn btn-success" href="{{ route('export-admin-attendance') }}"><i class="bi bi-filetype-csv"></i> Exportar todos los registros</a>
                 </div>
             </div> <!--end::Row-->
         </div> <!--end::Container-->

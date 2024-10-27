@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
         // Rutas usuarios admin sin 'EDIT' y 'UPDATE'
         Route::resource('users', UserController::class)->except(['edit', 'update']);
 
+        // Rutas registros entrada y salida admin
+        Route::get('/admin/attendances', [AttendanceController::class, 'viewHistoricAdminAttendance'])->name('admin.attendances.index');
+
         // Rutas vacaciones
         Route::get('/admin/holidays', [HolidayController::class, 'indexAdminHolidays'])->name('admin.holidays.index');
         Route::get('/admin/holidays/{holiday}/edit', [HolidayController::class, 'editAdminHolidays'])->name('admin.holidays.edit');
