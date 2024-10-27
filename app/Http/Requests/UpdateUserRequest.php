@@ -27,6 +27,7 @@ class UpdateUserRequest extends FormRequest
             'last_name' => ['required'],
             'departments' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($this->user)],
+            'approved' => ['required'],
         ];
     }
 }

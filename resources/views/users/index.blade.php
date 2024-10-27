@@ -63,7 +63,8 @@
                     <th>{{ __('Nombre y Apellidos') }}</th>
                     <th>{{ __('Email') }}</th>
                     <th>{{ __('Departamento') }}</th>
-                    <th></th>
+                    <th>{{ __('Estado') }}</th>
+                    <th>{{ __('Acciones') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -72,6 +73,11 @@
                         <td>{{ $user->first_name }} {{ $user->last_name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->departments }}</td>
+                        @if($user->approved)
+                            <td class="grid items-center text-center"><span class="badge bg-success items-center text-center">{{ __('Aprobado') }}</span></td>
+                        @else
+                            <td class="grid items-center text-center"><span class="badge bg-warning items-center text-center">{{ __('Pendiente') }}</span></td>
+                        @endif
                         <td style="display: grid; justify-content: space-evenly;">
                             <a href="{{ route('users.edit', $user) }}" class="btn btn-secondary position-relative mb-2">
                                 {{ __('Editar') }}

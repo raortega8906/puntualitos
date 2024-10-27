@@ -39,7 +39,7 @@
                         <div class="mb-3">
                             <label for="departments" class="form-label">{{ __('Departamento') }}</label>
                             <select name="departments" id="departments" aria-describedby="departments" class="form-control" required autofocus>
-                                <option value="{{ $user->departments }}" disabled selected>{{ $user->departments }}</option>
+                                <option value="{{ $user->departments }}" selected>{{ $user->departments ? $user->departments : 'Seleccione un departamento' }}</option>
                                 <option value="Desarrollo">{{ __('Desarrollo') }}</option>
                                 <option value="Cuentas">{{ __('Cuentas') }}</option>
                                 <option value="Diseño">{{ __('Diseño') }}</option>
@@ -51,6 +51,13 @@
                             <label for="email" class="form-label">{{ __('Email') }}</label>
                             <input type="email" name="email" class="form-control" id="email" aria-describedby="email"
                                    value="{{ $user->email }}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="approved" class="form-label">{{ __('Estado') }}</label>
+                            <select name="approved" id="approved" aria-describedby="approved" class="form-control" required autofocus>
+                                <option value="1" {{ $user->approved == 1 ? 'selected' : '' }}>{{ __('Aprobado') }}</option>
+                                <option value="0" {{ $user->approved == 0 ? 'selected' : '' }}>{{ __('Pendiente') }}</option>
+                            </select>
                         </div>
                     </div>
 
@@ -74,5 +81,16 @@
                 }
             }
         });
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const approvedSelect = document.getElementById('approved');
+        //     const selectedOptionApproved = approvedSelect.options[0].value;
+
+        //     for (let i = 1; i < approvedSelect.options.length; i++) {
+        //         if (approvedSelect.options[i].value === selectedOptionApproved) {
+        //             approvedSelect.options[i].style.display = 'none';
+        //         }
+        //     }
+        // });
     </script>
 @endsection

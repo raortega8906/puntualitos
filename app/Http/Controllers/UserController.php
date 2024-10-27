@@ -56,14 +56,14 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
+        // dd($user);
+
         if(auth()->user()->is_admin) {
             return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
         }
         else {
             return redirect()->route('dashboard', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
         }
-
-
     }
 
     /**

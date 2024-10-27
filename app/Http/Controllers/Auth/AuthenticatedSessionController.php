@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,6 +25,12 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        $aproved = User::where('email', $request->email)->where('approved', true)->first();
+
+        if(!$aproved) {
+            return redirect()->route('login')->with('status', 'El email no ha sido aprobado por el administrador.');
+        }
+
         $request->authenticate();
 
         $request->session()->regenerate();

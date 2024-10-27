@@ -23,7 +23,8 @@ class User extends Authenticatable
         "holidays",
         "email",
         "password",
-        "is_admin"
+        "is_admin",
+        "approved"
     ];
 
     /**

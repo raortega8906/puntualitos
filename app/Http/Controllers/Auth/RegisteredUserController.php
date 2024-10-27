@@ -59,11 +59,13 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
         Mail::to($email)->send(new UserRegisterMailable($user->first_name, $user->last_name, $user->email, $user->departments));
         Mail::to($user->email)->send(new UserPreRegisterMailable($user->first_name, $user->last_name));
 
-        return redirect(route("dashboard", absolute: false));
+        return redirect()->route('login')->with('status', 'El registro fue exitoso, te enviaremos un email cuando el Admin haya verificado tu identidad.');
+
+        // return redirect(route("dashboard", absolute: false));
     }
 }
