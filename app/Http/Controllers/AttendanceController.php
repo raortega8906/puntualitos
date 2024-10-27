@@ -140,7 +140,7 @@ class AttendanceController extends Controller
 
     public function viewHistoricAdminAttendance()
     {
-        $attendances = Attendance::paginate(10);
+        $attendances = Attendance::all();
 
         return view('admin.attendances.index', compact('attendances'));
     }

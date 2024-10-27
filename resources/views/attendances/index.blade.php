@@ -112,7 +112,7 @@
             </div>
 
             <div class="mt-4">
-                {{ $attendances->links() }}
+                <!-- {{ $attendances->links() }} -->
             </div>
 
         </div> <!--end::Container-->
