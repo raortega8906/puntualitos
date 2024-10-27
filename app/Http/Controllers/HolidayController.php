@@ -6,7 +6,9 @@ use App\Http\Requests\StoreHolidayRequest;
 use App\Http\Requests\UpdateAdminHolidayRequest;
 use App\Http\Requests\UpdateHolidayRequest;
 use App\Mail\HolidayCreatedMailable;
+use App\Mail\HolidayStatusMailable;
 use App\Models\Holiday;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -65,7 +67,9 @@ class HolidayController extends Controller
             'status' => 'en espera',
         ]);
 
-        Mail::to(auth()->user()->email)->send(new HolidayCreatedMailable());
+        $email = User::where('is_admin', true)->value('email');
+
+        Mail::to($email)->send(new HolidayCreatedMailable);
 
         return redirect()->route('holidays.index')->with('status', 'Las vacaciones fueron solicitadas satisfactoriamente');
 
@@ -143,6 +147,11 @@ class HolidayController extends Controller
         }
 
         $holiday->update($request->validated());
+
+        $status = $request->input('status');
+        $email = $holiday->user->email;
+
+        Mail::to($email)->send(new HolidayStatusMailable($status));
 
         return redirect()->route('admin.holidays.index')->with('status', 'El estado de las vacaciones fue actualizado exitosamente.');
     }

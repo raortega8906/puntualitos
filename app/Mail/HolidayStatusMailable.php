@@ -9,16 +9,18 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class HolidayCreatedMailable extends Mailable
+class HolidayStatusMailable extends Mailable
 {
     use Queueable, SerializesModels;
+
+    public $status;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct($status)
     {
-        //
+        $this->status = $status;
     }
 
     /**
@@ -27,7 +29,7 @@ class HolidayCreatedMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Vacaciones creadas',
+            subject: 'Estado de las vacaciones modificadas',
         );
     }
 
@@ -37,7 +39,7 @@ class HolidayCreatedMailable extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.holiday-created',
+            view: 'emails.holiday-status',
         );
     }
 

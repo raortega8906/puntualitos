@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\IncidentCreatedMailable;
 use App\Models\Incident;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class IncidentController extends Controller
 {
@@ -27,6 +30,11 @@ class IncidentController extends Controller
             'description' => $request->input('description'),
             'time' => now()
         ]);
+
+        $email = User::where('is_admin', true)->value('email');
+
+
+        Mail::to($email)->send(new IncidentCreatedMailable());
 
         return redirect()->route('dashboard')->with('warning', 'Incidencia registrada exitosamente.');
     }

@@ -1,7 +1,3 @@
-<h1>
-    Correo por aprobar
-</h1>
+<h1>Vacaciones creadas</h1>
 
-<p>
-    Se ha creado una nueva vacación... necesita moderacion por parte del admin
-</p>
+<p>Se ha creado una nueva vacación... necesita moderación por parte del administrador.</p>
