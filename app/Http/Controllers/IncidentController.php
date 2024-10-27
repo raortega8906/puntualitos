@@ -33,7 +33,6 @@ class IncidentController extends Controller
 
         $email = User::where('is_admin', true)->value('email');
 
-
         Mail::to($email)->send(new IncidentCreatedMailable());
 
         return redirect()->route('dashboard')->with('warning', 'Incidencia registrada exitosamente.');

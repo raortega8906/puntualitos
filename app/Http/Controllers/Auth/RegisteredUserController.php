@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\UserPreRegisterMailable;
+use App\Mail\UserRegisterMailable;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -52,9 +55,14 @@ class RegisteredUserController extends Controller
             "password" => Hash::make($request->password),
         ]);
 
+        $email = User::where('is_admin', true)->value('email');
+
         event(new Registered($user));
 
         Auth::login($user);
+
+        Mail::to($email)->send(new UserRegisterMailable($user->first_name, $user->last_name, $user->email, $user->departments));
+        Mail::to($user->email)->send(new UserPreRegisterMailable($user->first_name, $user->last_name));
 
         return redirect(route("dashboard", absolute: false));
     }

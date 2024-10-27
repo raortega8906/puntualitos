@@ -1,8 +1,8 @@
-<h1>Vacaciones modificadas</h1>
+<h1>{{ __('Vacaciones modificadas') }}</h1>
 
-<p>Tus vacaciones fueron: </p>
+<p>{{ __('Tus vacaciones fueron: ') }}</p>
 @if($status == 'aprobadas')
-    <p>aprobadas</p>
+    <p>{{ __('aprobadas') }}</p>
 @elseif($status == 'canceladas')
-    <p>rechazadas</p>
+    <p>{{ __('rechazadas') }}</p>
 @endif

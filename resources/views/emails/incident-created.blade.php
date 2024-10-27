@@ -1,3 +1,3 @@
-<h1>Incidencia creada</h1>
+<h1>{{ __('Incidencia creada') }}</h1>
 
-<p>Se ha creado una nueva incidencia... necesita moderación por parte del administrador.</p>
+<p>{{ __('Se ha creado una nueva incidencia... necesita moderación por parte del administrador.') }}</p>
