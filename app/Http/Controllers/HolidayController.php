@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreHolidayRequest;
 use App\Http\Requests\UpdateAdminHolidayRequest;
 use App\Http\Requests\UpdateHolidayRequest;
+use App\Mail\HolidayCreatedMailable;
 use App\Models\Holiday;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class HolidayController extends Controller
 {
@@ -62,6 +64,8 @@ class HolidayController extends Controller
             'finished' => $request->input('finished'),
             'status' => 'en espera',
         ]);
+
+        Mail::to(auth()->user()->email)->send(new HolidayCreatedMailable());
 
         return redirect()->route('holidays.index')->with('status', 'Las vacaciones fueron solicitadas satisfactoriamente');
 
