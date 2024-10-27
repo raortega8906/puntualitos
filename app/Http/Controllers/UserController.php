@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Mail\UserUpdateMailable;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
@@ -59,6 +61,7 @@ class UserController extends Controller
         // dd($user);
 
         if(auth()->user()->is_admin) {
+            Mail::to($user->email)->send(new UserUpdateMailable($user->first_name, $user->last_name));
             return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
         }
         else {

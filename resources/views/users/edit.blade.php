@@ -52,6 +52,7 @@
                             <input type="email" name="email" class="form-control" id="email" aria-describedby="email"
                                    value="{{ $user->email }}" required>
                         </div>
+                        @if(auth()->user()->is_admin)
                         <div class="mb-3">
                             <label for="approved" class="form-label">{{ __('Estado') }}</label>
                             <select name="approved" id="approved" aria-describedby="approved" class="form-control" required autofocus>
@@ -59,6 +60,7 @@
                                 <option value="0" {{ $user->approved == 0 ? 'selected' : '' }}>{{ __('Pendiente') }}</option>
                             </select>
                         </div>
+                        @endif
                     </div>
 
                     <div class="card-footer">

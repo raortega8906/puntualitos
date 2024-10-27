@@ -21,6 +21,7 @@ class UserSeeder extends Seeder
             'email' => 'raortega8906@gmail.com',
             'password' => bcrypt('laravel2024.'),
             'is_admin' => 1,
+            'approved' => 1,
         ]);
     }
 }
