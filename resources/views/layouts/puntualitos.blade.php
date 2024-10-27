@@ -223,20 +223,18 @@
     });
 </script> <!--end::OverlayScrollbars Configure-->
 
-<script src="https://api.ipify.org?format=jsonp&callback=getIp"></script>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // let userIp = '79.117.222.102';
-        // let userIp = '81.43.79.158';
         let userIp = '';
+
+        const options = {method: 'GET'};
 
         // Obtener la IP pública del usuario usando la API de ipify
         fetch('https://api.ipify.org?format=json')
             .then(response => response.json())
             .then(data => {
                 userIp = data.ip;
-                console.log(userIp)
+                console.log(userIp);
             })
             .catch(error => {
                 console.error('Error fetching IP:', error);
@@ -245,6 +243,7 @@
         // Añadir la IP pública al formulario cuando se envía
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', function(e) {
+                // e.preventDefault();
                 if(userIp) {
                     let ipInput = document.createElement('input');
                     ipInput.setAttribute('type', 'hidden');

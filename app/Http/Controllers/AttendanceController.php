@@ -11,18 +11,21 @@ class AttendanceController extends Controller
 {
     public function checkIn(Request $request)
     {
+
         $attendance = Attendance::where('user_id', auth()->id())->latest()->first();
+
+        // dd($attendance);
 
         if(!$attendance || $attendance->check_out){
 
-            if($request->input('public_ip') != '79.117.222.102' || $request->input('public_ip') != '81.43.79.158' || $request->input('public_ip') == null)
+            if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
             {
                 redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
             }
             else {
                 Attendance::create([
                     'user_id' => auth()->id(),
-                    'check_in' => now()->addHours(2),
+                    'check_in' => now()->addHours(1),
                     'ip_address_check_in' => $request->input('public_ip')
                 ]);
 
@@ -41,7 +44,7 @@ class AttendanceController extends Controller
 
         if($attendance && !$attendance->check_out) {
 
-            if($request->input('public_ip') != '79.117.222.102' || $request->input('public_ip') != '81.43.79.158' || $request->input('public_ip') == null)
+            if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
             {
                 return redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
             }
@@ -52,7 +55,7 @@ class AttendanceController extends Controller
                 $dateParts = explode(' ', $check_in);
                 $date = $dateParts[0];
 
-                    if ($date != now()->addHours(2)->toDateString()) {
+                    if ($date != now()->addHours(1)->toDateString()) {
                     $attendance->update([
                         'check_out' => $date.' 23:59:59',
                         'ip_address_check_out' => $request->input('public_ip')
@@ -60,7 +63,7 @@ class AttendanceController extends Controller
                 }
                 else {
                     $attendance->update([
-                        'check_out' => now()->addHours(2),
+                        'check_out' => now()->addHours(1),
                         'ip_address_check_out' => $request->input('public_ip')
                     ]);
                 }
@@ -80,18 +83,18 @@ class AttendanceController extends Controller
         $flag_checkout = false;
 
         // Obtener el día de la semana (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
-        $dayOfWeek = now()->addHours(2)->dayOfWeek;
+        $dayOfWeek = now()->addHours(1)->dayOfWeek;
 
         // Verificar si es viernes o fin de semana
         $isWeekend = ($dayOfWeek == 6 || $dayOfWeek == 0); // Sábado o Domingo
         $isFriday = ($dayOfWeek == 5); // Viernes
 
         $count_checkin = Attendance::where('user_id', auth()->id())
-            ->whereDate('check_in', now()->addHours(2)->toDateString())
+            ->whereDate('check_in', now()->addHours(1)->toDateString())
             ->count();
 
         $count_checkout = Attendance::where('user_id', auth()->id())
-            ->whereDate('check_out', now()->addHours(2)->toDateString())
+            ->whereDate('check_out', now()->addHours(1)->toDateString())
             ->count();
 
         if($attend && !$attend->check_out) {
