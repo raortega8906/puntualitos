@@ -15,7 +15,7 @@ class AttendanceController extends Controller
 
         if(!$attendance || $attendance->check_out){
 
-            if($request->input('public_ip') != '79.117.222.102' || $request->input('public_ip') == null)
+            if($request->input('public_ip') != '79.117.222.102' || $request->input('public_ip') != '81.43.79.158' || $request->input('public_ip') == null)
             {
                 redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
             }
@@ -41,7 +41,7 @@ class AttendanceController extends Controller
 
         if($attendance && !$attendance->check_out) {
 
-            if($request->input('public_ip') != '79.117.222.102' || $request->input('public_ip') == null)
+            if($request->input('public_ip') != '79.117.222.102' || $request->input('public_ip') != '81.43.79.158' || $request->input('public_ip') == null)
             {
                 return redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
             }
@@ -120,8 +120,8 @@ class AttendanceController extends Controller
             }
         } elseif ($isWeekend) {
             // Deshabilitar ambos botones los fines de semana
-            $flag_checkin = true;
-            $flag_checkout = true;
+            $flag_checkin = false;
+            $flag_checkout = false;
         }
 
         $attendances = Attendance::orderBy('created_at', 'desc')->get();
