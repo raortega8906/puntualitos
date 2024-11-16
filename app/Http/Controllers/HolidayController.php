@@ -108,7 +108,7 @@ class HolidayController extends Controller
     {
         $holiday->delete();
 
-        return redirect()->route('holidays.index', compact('holiday'))->with('delete', 'Las vacaciones fue eliminada satisfactoriamente');;
+        return redirect()->route('holidays.index', compact('holiday'))->with('delete', 'Las vacaciones fue eliminada satisfactoriamente');
     }
 
     public function showHolidays()
