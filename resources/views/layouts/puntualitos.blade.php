@@ -53,11 +53,20 @@
             </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
             <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                 <!--begin::Messages Dropdown Menu-->
-                <li class="nav-item"><a class="nav-link" href="#" data-lte-toggle="fullscreen"> <i
-                            data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> <i data-lte-icon="minimize"
-                                                                                             class="bi bi-fullscreen-exit"
-                                                                                             style="display: none;"></i>
-                    </a></li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
+                <li class="nav-item timer pt-2 pr-2">
+                @php
+                    use Carbon\Carbon;
+                    $timeNowPlusOneHour = Carbon::now()->addHour()->format('H:i:s');
+                @endphp
+
+                <div id="timer">{{ $timeNowPlusOneHour }}</div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-lte-toggle="fullscreen">
+                        <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> 
+                        <i data-lte-icon="minimize"class="bi bi-fullscreen-exit"style="display: none;"></i>
+                    </a>
+                </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
                 <li class="nav-item dropdown user-menu"><a href="#" class="nav-link dropdown-toggle"
                                                            data-bs-toggle="dropdown"> <img
                             src="{{ asset('dist/assets/img/avatar4.png') }}" class="user-image rounded-circle shadow"
@@ -270,6 +279,23 @@
             message.style.display = 'none';
         }, 5000); // 5000 milisegundos = 5 segundos
     });
+
+    // Timer
+    let timer = setInterval(function() {
+        let now = new Date();
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById("timer").innerHTML = h + ":" + m + ":" + s;
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+    }, 1000);
 </script>
 
 </body><!--end::Body-->
