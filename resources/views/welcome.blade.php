@@ -6,8 +6,8 @@
     <title>{{ __('Puntualitos') }}</title>
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('/images/logo_bg_removed.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('/images/logo_bg_removed.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('/images/logo_bg_removed.webp') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('/images/logo_bg_removed.webp') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
         :root {
@@ -77,7 +77,7 @@
 
     <div class="flex items-center mt-10">
         <div class="rounded-lg p-6">
-            <img class="rounded rounded-[10px]" src="{{ asset('images/register.png') }}">
+            <img class="rounded rounded-[10px]" src="{{ asset('images/register.webp') }}" alt="Register" width="100%">
         </div>
     </div>
 
@@ -132,10 +132,10 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center mt-20">
         <div class="rounded-lg p-8 w-full">
-            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/dashboard.png') }}">
+            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/dashboard.webp') }}" alt="Dashboard" width="100%">
         </div>
         <div class="rounded-lg p-8 w-full">
-            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/calendar.png') }}">
+            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/calendar.webp') }}" alt="Calendar" width="100%">
         </div>
     </div>
 
