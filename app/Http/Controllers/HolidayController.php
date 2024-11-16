@@ -114,7 +114,7 @@ class HolidayController extends Controller
     public function showHolidays()
     {
         // Obtén solo las vacaciones del usuario autenticado
-        $holidays = Holiday::where('user_id', auth()->user()->id)->get();
+        $holidays = Holiday::where('user_id', auth()->user()->id)->get(); 
 
         // Devuelve la vista con la variable 'holidays'
         return view('calendar', compact('holidays'));
