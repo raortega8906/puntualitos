@@ -48,8 +48,8 @@
     <div class="container mx-auto px-6 py-3 flex justify-between items-center">
         <div class="flex lg:justify-center lg:col-start-2 items-center">
             <a href="{{ route('welcome') }}"> <img class="logo w-20 h-20"
-                                                   src="{{ asset('images/logo_bg_removed.png') }}"
-                                                   alt="Puntualito Logo"></a>
+                                                   src="{{ asset('images/logo_bg_removed.webp') }}"
+                                                   alt="Puntualito Logo" width="100%"></a>
         </div>
 
         <div>
