@@ -38,33 +38,41 @@ Follow these steps to set up the project locally:
     npm install
     ```
 
-3. Create the `.env` file from the example provided:
+3. Install Node.js dependencies and compile assets:
+
+    ```bash
+    cd public
+    npm install
+    npm run dev
+    ```
+
+4. Create the `.env` file from the example provided:
 
     ```bash
     cp .env.example .env
     ```
 
-4. Generate the application key:
+5. Generate the application key:
 
     ```bash
     php artisan key:generate
     ```
 
-5. Configure the database credentials in the `.env` file.
+6. Configure the database credentials in the `.env` file.
 
-6. Run the database migrations:
+7. Run the database migrations:
 
     ```bash
     php artisan migrate
     ```
 
-7. Compile the assets:
+8. Compile the assets:
 
     ```bash
     npm run dev
     ```
 
-8. Start the development server:
+9. Start the development server:
 
     ```bash
     php artisan serve
