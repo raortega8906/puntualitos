@@ -14,8 +14,6 @@ class AttendanceController extends Controller
 
         $attendance = Attendance::where('user_id', auth()->id())->latest()->first();
 
-        // dd($attendance);
-
         if(!$attendance || $attendance->check_out){
 
             if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
