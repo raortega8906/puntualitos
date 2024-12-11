@@ -47,6 +47,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/check-in', [AttendanceController::class, 'checkIn'])->name('check-in');
     Route::post('/check-out', [AttendanceController::class, 'checkOut'])->name('check-out');
 
+    // Exportar datos de registro de entrada y salida
+    Route::get('/export-attendance', [AttendanceController::class, 'exportAttendance'])->name('export-attendance');
+
     // Rutas registro de incidencias
     Route::get('/incidents/create', [IncidentController::class, 'issueCreate'])->name('incidents.issueCreate');
     Route::get('/incidents', [IncidentController::class, 'issueIndex'])->name('incidents.issueIndex');
@@ -55,9 +58,6 @@ Route::middleware('auth')->group(function () {
     // Rutas vacaciones
     Route::resource('holidays', HolidayController::class);
     Route::get('/calendar', [HolidayController::class, 'showHolidays'])->name('calendar');
-
-    // Exportar datos de registro de entrada y salida
-    Route::get('/export-attendance', [AttendanceController::class, 'exportAttendance'])->name('export-attendance');
 });
 
 require __DIR__.'/auth.php';
