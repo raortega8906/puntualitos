@@ -16,11 +16,12 @@ class AttendanceController extends Controller
 
         if(!$attendance || $attendance->check_out){
 
-            if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
-            {
-                redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
-            }
-            else {
+            // Tengo Remover todas las ip's de los registros de entrada y salida
+            // if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
+            // {
+            //     redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
+            // }
+            // else {
                 Attendance::create([
                     'user_id' => auth()->id(),
                     'check_in' => now()->addHours(1),
@@ -28,7 +29,7 @@ class AttendanceController extends Controller
                 ]);
 
                 return redirect()->back()->with('status', 'Check-in registrado exitosamente.');
-            }
+            // }
 
         }
 
@@ -42,12 +43,12 @@ class AttendanceController extends Controller
 
         if($attendance && !$attendance->check_out) {
 
-            if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
-            {
-                return redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
-            }
+            // if( ($request->input('public_ip') != '79.117.222.102' && $request->input('public_ip') != '81.43.79.158') || $request->input('public_ip') == null)
+            // {
+            //     return redirect()->back()->with('error', 'Hubo un error, inténtelo de nuevo más tarde.');
+            // }
 
-            else {
+            // else {
 
                 $check_in = trim($attendance->check_in);
                 $dateParts = explode(' ', $check_in);
@@ -67,7 +68,7 @@ class AttendanceController extends Controller
                 }
 
                 return redirect()->back()->with('status', 'Check-out registrado exitosamente.');
-            }
+            // }
 
         }
 
