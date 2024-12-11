@@ -54,19 +54,14 @@
             <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                 <!--begin::Messages Dropdown Menu-->
                 <li class="nav-item timer pt-2 pr-2">
-                @php
-                    use Carbon\Carbon;
-                    $timeNowPlusOneHour = Carbon::now()->addHour()->format('H:i:s');
-                @endphp
+                    @php
+                        use Carbon\Carbon;
+                        $timeNowPlusOneHour = Carbon::now()->addHour()->format('H:i:s');
+                    @endphp
 
-                <div id="timer">{{ $timeNowPlusOneHour }}</div>
+                    <div id="timer">{{ $timeNowPlusOneHour }}</div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" data-lte-toggle="fullscreen">
-                        <i data-lte-icon="maximize" class="bi bi-arrows-fullscreen"></i> 
-                        <i data-lte-icon="minimize"class="bi bi-fullscreen-exit"style="display: none;"></i>
-                    </a>
-                </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
+                <!--begin::User Menu Dropdown-->
                 <li class="nav-item dropdown user-menu"><a href="#" class="nav-link dropdown-toggle"
                                                            data-bs-toggle="dropdown"> <img
                             src="{{ asset('dist/assets/img/avatar4.png') }}" class="user-image rounded-circle shadow"
