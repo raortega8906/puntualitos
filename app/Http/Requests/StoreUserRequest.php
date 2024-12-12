@@ -28,6 +28,7 @@ class StoreUserRequest extends FormRequest
             'departments' => ['required'],
             'email' => ['required', 'email', Rule::unique('users')],
             'approved' => ['required'],
+            'avatar' => ['required'],
             'password' => ['required']
         ];
     }

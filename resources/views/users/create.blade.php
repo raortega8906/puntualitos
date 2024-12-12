@@ -45,6 +45,11 @@
                             <label for="password" class="form-label">{{ __('Contraseña') }}</label>
                             <input type="password" name="password" class="form-control" id="password" required>
                         </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="approved" value="1">
+                        </div>
+                        <div class="mb-3">
+                            <input type="hidden" name="avatar" value="/images/avatars/default-150x150.png">
                     </div>
 
                     <div class="card-footer">
