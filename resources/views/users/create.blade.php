@@ -50,6 +50,7 @@
                         </div>
                         <div class="mb-3">
                             <input type="hidden" name="avatar" value="/images/avatars/default-150x150.png">
+                        </div>
                     </div>
 
                     <div class="card-footer">
