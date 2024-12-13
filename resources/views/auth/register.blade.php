@@ -31,13 +31,6 @@
             <x-input-error :messages="$errors->get('last_name')" class="mt-2"/>
         </div>
 
-    {{--        <!-- Departments -->--}}
-    {{--        <div class="mt-4">--}}
-    {{--            <x-input-label for="departments" :value="__('Departments')" />--}}
-    {{--            <x-text-input id="departments" class="block mt-1 w-full" type="text" name="departments" :value="old('departments')" required autofocus autocomplete="departments" />--}}
-    {{--            <x-input-error :messages="$errors->get('departments')" class="mt-2" />--}}
-    {{--        </div>--}}
-
         <!-- Departments -->
         <div class="mt-4">
             <x-input-label for="departments" :value="__('Departmentos')" />
