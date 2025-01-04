@@ -60,6 +60,10 @@
                                 <option value="0" {{ $user->approved == 0 ? 'selected' : '' }}>{{ __('Pendiente') }}</option>
                             </select>
                         </div>
+                        @else
+                        <div class="mb-3">
+                            <input type="hidden" name="approved" value="1">
+                        </div>
                         @endif
                     </div>
 

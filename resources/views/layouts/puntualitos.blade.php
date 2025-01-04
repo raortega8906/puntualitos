@@ -68,11 +68,13 @@
                             alt="Avatar Image"> <span class="d-none d-md-inline">{{ Auth::user()->first_name }}</span>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
-                        <li class="user-header text-bg-primary"><img src="{{ Auth::user()->avatar }}"
-                                                                     class="rounded-circle shadow" alt="Avatar Image">
+                        <li class="user-header text-bg-primary">
+                            <img src="{{ Auth::user()->avatar }}" class="rounded-circle shadow" alt="Avatar Image">
+                            <br>
+                            <a href="#" class="btn btn-default btn-flat" style="color: #fff;">{{ __('Cambiar Avatar') }}</a>
                             <p>
                                 {{ Auth::user()->first_name }}
-                                <small>{{ __('Desde ' . Auth::user()->created_at) }}</small>
+                                <small>{{ __('Desde ' . Auth::user()->created_at->format('d/m/Y ')) }}</small>
                             </p>
                         </li> <!--end::User Image--> <!--begin::Menu Body-->
 
