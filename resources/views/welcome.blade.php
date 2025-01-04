@@ -132,10 +132,10 @@
 
     <div class="grid grid-cols-1 sm:grid-cols-2 items-center mt-20">
         <div class="rounded-lg p-8 w-full">
-            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/dashboard.webp') }}" alt="Dashboard" width="100%">
+            <img class="rounded-[10px] w-full" src="{{ asset('images/dashboard.webp') }}" alt="Dashboard" width="100%">
         </div>
         <div class="rounded-lg p-8 w-full">
-            <img class="rounded rounded-[10px] w-full" src="{{ asset('images/calendar.webp') }}" alt="Calendar" width="100%">
+            <img class="rounded-[10px] w-full" src="{{ asset('images/calendar.webp') }}" alt="Calendar" width="100%">
         </div>
     </div>
 

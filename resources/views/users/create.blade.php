@@ -33,9 +33,20 @@
                             <label for="last_name" class="form-label">{{ __('Apellidos') }}</label>
                             <input type="text" name="last_name" class="form-control" id="last_name" required>
                         </div>
-                        <div class="mb-3">
+                        <!-- <div class="mb-3">
                             <label for="departments" class="form-label">{{ __('Departamento') }}</label>
                             <input type="text" name="departments" class="form-control" id="departments" required>
+                        </div> -->
+                        <div class="mb-3">
+                            <label for="departments" class="form-label">{{ __('Departamento') }}</label>
+                            <select name="departments" id="departments" aria-describedby="departments" class="form-control" required autofocus>
+                                <option value="0" disabled selected>{{ 'Seleccione un departamento' }}</option>
+                                <option value="Desarrollo">{{ __('Desarrollo') }}</option>
+                                <option value="Cuentas">{{ __('Cuentas') }}</option>
+                                <option value="Diseño">{{ __('Diseño') }}</option>
+                                <option value="Vídeo">{{ __('Vídeo') }}</option>
+                                <option value="RRHH">{{ __('RRHH') }}</option>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">{{ __('Email') }}</label>

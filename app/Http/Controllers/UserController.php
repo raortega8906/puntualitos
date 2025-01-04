@@ -34,6 +34,7 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
+        dd($request->validated());
         User::create($request->validated());
 
         return redirect()->route('users.index')->with('status', 'Usuario registrado exitosamente.');;
@@ -58,15 +59,16 @@ class UserController extends Controller
     {
         $user->update($request->validated());
 
-        // dd($user);
+        // dd($request->validated());
+        // dd($user->email);
 
         if(auth()->user()->is_admin) {
             Mail::to($user->email)->send(new UserUpdateMailable($user->first_name, $user->last_name));
             return redirect()->route('users.index', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
         }
-        else {
-            return redirect()->route('dashboard', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
-        }
+        // else {
+        //     return redirect()->route('dashboard', compact('user'))->with('status', 'Usuario actualizado exitosamente.');
+        // }
     }
 
     /**

@@ -83,16 +83,5 @@
                 }
             }
         });
-
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     const approvedSelect = document.getElementById('approved');
-        //     const selectedOptionApproved = approvedSelect.options[0].value;
-
-        //     for (let i = 1; i < approvedSelect.options.length; i++) {
-        //         if (approvedSelect.options[i].value === selectedOptionApproved) {
-        //             approvedSelect.options[i].style.display = 'none';
-        //         }
-        //     }
-        // });
     </script>
 @endsection
