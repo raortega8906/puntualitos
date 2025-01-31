@@ -9,6 +9,8 @@
     <link rel="icon" href="{{ asset('/images/logo_bg_removed.webp') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('/images/logo_bg_removed.webp') }}" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    {{-- Estilos --}}
     <style>
         :root {
             --color-blue-light: #B3E5FC;
