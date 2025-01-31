@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ __('Puntualitos') }}</title>
-
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('/images/logo_bg_removed.webp') }}" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('/images/logo_bg_removed.webp') }}" type="image/x-icon">
