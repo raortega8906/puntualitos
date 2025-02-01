@@ -189,7 +189,7 @@
 
     <!--begin::Footer-->
     <footer class="app-footer" style="text-align: center;"> <!--begin::To the end-->
-        <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }} <a href="https://rafaelortegaweb.wpcache.es">{{ __('Rafael A. Ortega') }}</a>.
+        <p>&copy; {{ date('Y') }} {{ __('Desarrollado por') }} <a href="https://rafaelortegaweb.wpcache.es" target="_blanck">{{ __('Rafael A. Ortega') }}</a>.
         </p>
     </footer> <!--end::Footer-->
 </div> <!--end::App Wrapper--> <!--begin::Script--> <!--begin::Third Party Plugin(OverlayScrollbars)-->
