@@ -23,5 +23,16 @@ class UserSeeder extends Seeder
             'is_admin' => 1,
             'approved' => 1,
         ]);
+
+        User::create([
+            'first_name' => 'Usuario',
+            'last_name' => 'Test',
+            'departments' => 'Desarrollo',
+            'holidays' => 22,
+            'email' => 'admin@admin.com',
+            'password' => bcrypt('admin'),
+            'is_admin' => 1,
+            'approved' => 1,
+        ]);
     }
 }
