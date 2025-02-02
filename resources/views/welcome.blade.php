@@ -198,5 +198,8 @@
         </a>
     </div>
 </footer>
+<script>
+    alert('Para probar el sistema, por favor, inicia sesión con el usuario "admin@admin.com" y la contraseña "admin".');
+</script>
 </body>
 </html>
