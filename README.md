@@ -1,6 +1,6 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-# Puntualitos
+# Puntualitos (This project is under construction).
 
 **Puntualitos** is a Laravel web application designed for efficient management of employee schedules and attendance. It offers a professional and intuitive interface, allowing quick check-ins and check-outs, as well as detailed reporting of work hours. Ideal for small and medium-sized businesses seeking a streamlined time management solution.
 
